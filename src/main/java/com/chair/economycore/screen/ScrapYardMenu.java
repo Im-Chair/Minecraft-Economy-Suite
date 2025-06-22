@@ -41,7 +41,8 @@ public class ScrapYardMenu extends AbstractContainerMenu {
         this.player = playerInventory.player;
         this.sellContainer = new SimpleContainer(1);
         
-        this.addSlot(new Slot(this.sellContainer, 0, 80, 35));
+        // 【核心修正】使用與生成器完全一致的標準座標
+        this.addSlot(new Slot(this.sellContainer, 0, 80, 36));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -121,6 +122,7 @@ public class ScrapYardMenu extends AbstractContainerMenu {
 
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
+            // 【核心修正】使用標準座標
             for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
@@ -129,6 +131,7 @@ public class ScrapYardMenu extends AbstractContainerMenu {
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
+            // 【核心修正】使用標準座標
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }

@@ -2,6 +2,8 @@ package com.chair.economycore.event;
 
 import com.chair.economycore.EconomyCore;
 import com.chair.economycore.capability.PlayerMoney;
+import com.chair.economycore.capability.PlayerReputation; // 【新增】引入新的能力類別
+import com.chair.economycore.entity.AetheriumArtisanNpc;
 import com.chair.economycore.entity.ModEntities;
 import com.chair.economycore.entity.ScrapYardNpc;
 import com.chair.economycore.item.ModItems;
@@ -18,26 +20,35 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+        // 在這裡註冊我們所有的能力
         event.register(PlayerMoney.class);
+        // 【新增】註冊玩家信譽能力
+        event.register(PlayerReputation.class);
     }
 
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
         event.put(ModEntities.SCRAP_YARD_NPC.get(),
                 ScrapYardNpc.createAttributes().build());
+        event.put(ModEntities.AETHERIUM_ARTISAN_NPC.get(),
+                AetheriumArtisanNpc.createAttributes().build());
     }
     
-    // 【搬回來的，正確的】負責將物品添加到創造模式物品欄
     @SubscribeEvent
     public static void onBuildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
-        // 將古代石碑添加到「原料」分頁
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.ANCIENT_STELE);
+            event.accept(ModItems.BOUNDARY_STONE);
         }
-
-        // 【採納你的建議】為了方便尋找，暫時將生成蛋添加到「戰鬥用品」分頁
-        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+        
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ModItems.SCRAP_YARD_NPC_SPAWN_EGG);
+            event.accept(ModItems.AETHERIUM_ARTISAN_NPC_SPAWN_EGG);
+        }
+        
+        // 【新增】將懸賞板添加到「功能性方塊」分頁
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ModItems.BOUNTY_BOARD_ITEM);
         }
     }
 }

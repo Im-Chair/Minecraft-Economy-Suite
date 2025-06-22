@@ -1,8 +1,8 @@
 package com.chair.economycore.screen;
 
 import com.chair.economycore.EconomyCore;
-import com.chair.economycore.network.ModMessages; // 【新增】
-import com.chair.economycore.network.packet.SellItemC2SPacket; // 【新增】
+import com.chair.economycore.network.ModMessages;
+import com.chair.economycore.network.packet.SellItemC2SPacket;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -18,6 +18,9 @@ public class ScrapYardScreen extends AbstractContainerScreen<ScrapYardMenu> {
 
     public ScrapYardScreen(ScrapYardMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
+        // 【修正】確保使用標準的 166 高度
+        this.imageHeight = 166;
+        this.inventoryLabelY = this.imageHeight - 94;
     }
 
     @Override
@@ -25,14 +28,16 @@ public class ScrapYardScreen extends AbstractContainerScreen<ScrapYardMenu> {
         super.init();
         int x = (this.width - this.imageWidth) / 2;
         int y = (this.height - this.imageHeight) / 2;
+        
+        // 【核心修正】重新計算按鈕座標，使其完美置中
+        // 物品欄中心點 x = 80 + 9 = 89
+        // 按鈕寬度 50，所以按鈕起始點 x = 89 - (50/2) = 64
         this.addRenderableWidget(Button.builder(Component.literal("出售"), this::onSellButtonPressed)
-                .bounds(x + 70, y + 55, 50, 20)
+                .bounds(x + 63, y + 58, 50, 20)
                 .build());
     }
-
-    // 【核心修正】修改按鈕行為
+    
     private void onSellButtonPressed(Button button) {
-        // 不再使用 menu.clickMenuButton，而是直接發送我們的專屬封包到伺服器
         ModMessages.sendToServer(new SellItemC2SPacket());
     }
 

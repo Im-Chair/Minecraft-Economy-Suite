@@ -1,4 +1,9 @@
 {
   "item.economycore.ancient_stele": "古代石碑",
-  "item.economycore.boundary_stone": "界碑石"
+  "item.economycore.boundary_stone": "界碑石",
+  "item.economycore.scrap_yard_npc_spawn_egg": "廢品回收員 生成蛋",
+  "item.economycore.aetherium_artisan_npc_spawn_egg": "天穹工匠 生成蛋",
+  "item.economycore.bounty_board": "懸賞板",
+  
+  "block.economycore.bounty_board": "懸賞板"
 }
