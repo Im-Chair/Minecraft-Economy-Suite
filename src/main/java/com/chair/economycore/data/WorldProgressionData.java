@@ -1,64 +1,82 @@
 package com.chair.economycore.data;
 
-import com.chair.economycore.EconomyCore;
 import com.chair.economycore.util.Era;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.DimensionDataStorage;
-import org.jetbrains.annotations.NotNull;
 
+/**
+ * 【已三次修正】
+ * - 新增 setCivilizationPoints 和 removeCivilizationPoints 方法
+ */
 public class WorldProgressionData extends SavedData {
 
-    private long civilizationPoints = 0;
-    private Era currentEra = Era.WILDERNESS;
+    private static final String DATA_NAME = "ecosuite_world_progression";
 
-    // 這個方法是讀取 NBT 數據並創建實例的核心
-    public static WorldProgressionData load(CompoundTag nbt) {
-        WorldProgressionData savedData = new WorldProgressionData();
-        savedData.civilizationPoints = nbt.getLong("civilization_points");
-        try {
-            savedData.currentEra = Era.valueOf(nbt.getString("current_era"));
-        } catch (IllegalArgumentException e) {
-            // 如果讀取失敗，保持預設值
-            savedData.currentEra = Era.WILDERNESS;
-        }
-        return savedData;
+    private long civilizationPoints = 0;
+    private Era currentEra = Era.PIONEER;
+
+    public static WorldProgressionData get(ServerLevel level) {
+        DimensionDataStorage storage = level.getServer().overworld().getDataStorage();
+        return storage.computeIfAbsent(WorldProgressionData::load, WorldProgressionData::new, DATA_NAME);
     }
 
-    // 這個方法是將實例數據寫入 NBT 的核心
+    public static WorldProgressionData load(CompoundTag nbt) {
+        WorldProgressionData data = new WorldProgressionData();
+        data.civilizationPoints = nbt.getLong("CivilizationPoints");
+        try {
+            data.currentEra = Era.valueOf(nbt.getString("CurrentEra"));
+        } catch (IllegalArgumentException e) {
+            data.currentEra = Era.PIONEER;
+        }
+        return data;
+    }
+
     @Override
-    public @NotNull CompoundTag save(@NotNull CompoundTag nbt) {
-        nbt.putLong("civilization_points", this.civilizationPoints);
-        nbt.putString("current_era", this.currentEra.name());
+    public CompoundTag save(CompoundTag nbt) {
+        nbt.putLong("CivilizationPoints", this.civilizationPoints);
+        nbt.putString("CurrentEra", this.currentEra.name());
         return nbt;
     }
 
-    // --- 從外部獲取我們數據的標準方法 ---
-    public static WorldProgressionData get(ServerLevel level) {
-        // 獲取主世界的數據儲存庫
-        DimensionDataStorage storage = level.getServer().overworld().getDataStorage();
-        
-        // 嘗試讀取我們的數據，如果不存在，則創建一個新的
-        return storage.computeIfAbsent(WorldProgressionData::load, WorldProgressionData::new, EconomyCore.MODID + "_progression_data");
-    }
-
-    // --- Getters and Setters ---
     public long getCivilizationPoints() {
-        return civilizationPoints;
+        return this.civilizationPoints;
     }
 
-    public void addCivilizationPoints(long points) {
-        this.civilizationPoints += points;
-        setDirty(); // 標記為「已變更」，以便在下次儲存世界時寫入硬碟
+    public void addCivilizationPoints(long amount) {
+        if (amount > 0) {
+            this.civilizationPoints += amount;
+            setDirty();
+        }
+    }
+
+    /**
+     * 【新增】移除指定數量的文明點數
+     */
+    public void removeCivilizationPoints(long amount) {
+        if (amount > 0) {
+            this.civilizationPoints = Math.max(0, this.civilizationPoints - amount); // 確保不會變負數
+            setDirty();
+        }
+    }
+
+    /**
+     * 【新增】直接設定文明點數為特定值
+     */
+    public void setCivilizationPoints(long amount) {
+        this.civilizationPoints = Math.max(0, amount); // 確保不會變負數
+        setDirty();
     }
 
     public Era getCurrentEra() {
-        return currentEra;
+        return this.currentEra;
     }
 
-    public void setCurrentEra(Era era) {
-        this.currentEra = era;
+    public void setCurrentEra(Era newEra) {
+        this.currentEra = newEra;
         setDirty();
     }
+
+    public WorldProgressionData() {}
 }

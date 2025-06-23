@@ -4,6 +4,12 @@
   "item.economycore.scrap_yard_npc_spawn_egg": "廢品回收員 生成蛋",
   "item.economycore.aetherium_artisan_npc_spawn_egg": "天穹工匠 生成蛋",
   "item.economycore.bounty_board": "懸賞板",
-  
-  "block.economycore.bounty_board": "懸賞板"
+  "block.economycore.bounty_board": "懸賞板",
+  "era.economysuite.pioneer": "拓荒時代",
+  "era.economysuite.settlement": "開墾時代",
+  "era.economysuite.commerce": "商業時代",
+  "era.economysuite.industry": "工業時代",
+  "era.economysuite.aether": "天穹時代",
+  "era.economysuite.star": "星辰時代",
+  "chat.economysuite.age_advance": "恭喜！世界已演進至全新的 [%s]！"
 }
