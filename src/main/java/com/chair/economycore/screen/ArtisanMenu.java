@@ -1,7 +1,7 @@
 package com.chair.economycore.screen;
 
 import com.chair.economycore.capability.PlayerMoneyProvider;
-import com.chair.economycore.item.ModItems;
+import com.chair.economycore.core.ArtisanShopRegistry; // 【新增】
 import com.chair.economycore.network.ModMessages;
 import com.chair.economycore.network.packet.MoneySyncS2CPacket;
 import net.minecraft.network.FriendlyByteBuf;
@@ -14,12 +14,11 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class ArtisanMenu extends AbstractContainerMenu {
-    private record ShopItem(ItemStack item, long price) {}
-    private final List<ShopItem> shopItems;
+
+    private final List<ArtisanShopRegistry.ShopItem> shopItems;
 
     public ArtisanMenu(int pContainerId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(ModMenuTypes.ARTISAN_MENU.get(), pContainerId, playerInventory);
@@ -31,21 +30,19 @@ public class ArtisanMenu extends AbstractContainerMenu {
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
         
-        this.shopItems = List.of(
-                new ShopItem(new ItemStack(ModItems.BOUNDARY_STONE.get()), 500L)
-        );
+        // 【核心修正】從 ArtisanShopRegistry 獲取商品列表
+        this.shopItems = ArtisanShopRegistry.SHOP_ITEMS;
     }
     
     public void performPurchase(ServerPlayer player, int itemIndex) {
         if (itemIndex >= 0 && itemIndex < this.shopItems.size()) {
-            ShopItem selectedItem = this.shopItems.get(itemIndex);
+            ArtisanShopRegistry.ShopItem selectedItem = this.shopItems.get(itemIndex);
             long price = selectedItem.price();
             
             player.getCapability(PlayerMoneyProvider.PLAYER_MONEY).ifPresent(money -> {
                 if (money.getMoney() >= price) {
                     money.removeMoney(price);
                     ModMessages.sendToPlayer(new MoneySyncS2CPacket(money.getMoney()), player);
-                    // 使用 player.getInventory().add() 會自動尋找可用空間
                     player.getInventory().add(selectedItem.item().copy());
                     player.sendSystemMessage(Component.literal("購買成功！"));
                 } else {
