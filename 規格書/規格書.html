@@ -1,6 +1,6 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>經濟模組套件規格書 v4.0</title>
+<title>經濟模組套件規格書 v4.1</title>
 <style>
 :root{--bg:#fbfaf7;--fg:#1f2328;--mut:#5b636d;--line:#d9d6cf;--acc:#9a5b13;--th:#f1eee7;--code:#efece5}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17191c;--fg:#e6e3dd;--mut:#a3a8ae;--line:#34383e;--acc:#e0a458;--th:#22252a;--code:#262a30}}
@@ -21,8 +21,8 @@ code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em}
 hr{border:0;border-top:1px solid var(--line)}
 #t{position:fixed;right:16px;bottom:16px;padding:6px 12px;border:1px solid var(--line);background:var(--th);color:var(--fg);border-radius:6px;cursor:pointer;font-size:15px}
 @media (max-width:900px){.wrap{display:block} nav{position:static;height:auto;width:auto;border-right:0;border-bottom:1px solid var(--line)} main{padding:16px}}
-</style></head><body><div class="wrap"><nav><ul><li><a href="#s0">經濟模組套件・設計總綱</a><ul><li><a href="#s0-1">第一章　三個核心目標</a></li><li><a href="#s0-2">第二章　貨幣原則</a></li><li><a href="#s0-3">第三章　模組結構</a></li><li><a href="#s0-4">第四章　世界時代</a></li><li><a href="#s0-5">第五章　人數係數</a></li><li><a href="#s0-6">第六章　開發階段</a></li><li><a href="#s0-7">第七章　進錢與花錢總覽</a></li><li><a href="#s0-8">第八章　名詞</a></li></ul></li><li><a href="#s1">01　經濟核心</a><ul><li><a href="#s1-1">第一章　錢包與帳本</a></li><li><a href="#s1-2">第二章　模組日</a></li><li><a href="#s1-3">第三章　人數係數</a></li><li><a href="#s1-4">第四章　物品註冊</a></li><li><a href="#s1-5">第五章　NPC 與設施通則</a></li><li><a href="#s1-6">第六章　古代石碑</a></li><li><a href="#s1-7">第七章　指令</a></li></ul></li><li><a href="#s2">02　物品估價與回收</a><ul><li><a href="#s2-1">第一章　物品基準價值 V</a></li><li><a href="#s2-2">第二章　收購飽和</a></li><li><a href="#s2-3">第三章　回收 NPC</a></li><li><a href="#s2-4">第四章　黑市每日投機品</a></li><li><a href="#s2-5">第五章　交易稅</a></li></ul></li><li><a href="#s3">03　城鎮發展</a><ul><li><a href="#s3-1">第一章　時代晉升（第一階段）</a></li><li><a href="#s3-2">第二章　開拓者集資箱（第一階段）</a></li><li><a href="#s3-3">第三章　冒險者階級（第一階段）</a></li><li><a href="#s3-4">第四章　懸賞板（第一階段；自動生成懸賞為第二階段）</a></li><li><a href="#s3-5">第五章　皇家交易所（第一階段）</a></li><li><a href="#s3-6">第六章　動態交易稅（第一階段）</a></li><li><a href="#s3-7">第七章　天穹工匠（第一階段；部分商品第二階段）</a></li><li><a href="#s3-8">第八章　博物館（第二階段，開墾時代起）</a></li><li><a href="#s3-9">第九章　地圖畫（第二階段，天穹時代起）</a></li><li><a href="#s3-10">第十章　次元商人（第二階段，星辰時代起）</a></li><li><a href="#s3-11">第十一章　財富持有稅（第二階段，商業時代起）</a></li><li><a href="#s3-12">第十二章　時代的終焉危機（第三階段）</a></li><li><a href="#s3-13">第十三章　傳說魂核（第三階段）</a></li><li><a href="#s3-14">第十四章　專屬工匠（第三階段，天穹時代起）</a></li></ul></li><li><a href="#s4">04　休閒與博弈</a><ul><li><a href="#s4-1">第一章　拉霸機</a></li><li><a href="#s4-2">第二章　遊戲終端</a></li><li><a href="#s4-3">第三章　樂透</a></li><li><a href="#s4-4">第四章　怪物鬥技場</a></li></ul></li><li><a href="#s5">05　玩家公會</a><ul><li><a href="#s5-1">第一章　建立與管理</a></li><li><a href="#s5-2">第二章　等級與經驗</a></li><li><a href="#s5-3">第三章　天賦</a></li><li><a href="#s5-4">第四章　暫緩的多人功能</a></li></ul></li><li><a href="#s6">06　暫緩：證券交易所、百工議會、財經新聞</a><ul><li><a href="#s6-1">第一章　暫緩原因</a></li><li><a href="#s6-2">第二章　保留的構想</a></li><li><a href="#s6-3">第三章　重新啟動前必須解決的問題</a></li></ul></li><li><a href="#s7">07　四大權證與個人城邦</a><ul><li><a href="#s7-1">第一章　四大權證（第二階段，天穹時代起）</a></li><li><a href="#s7-2">第二章　開拓者憲章（第二階段，星辰時代起）</a></li><li><a href="#s7-3">第三章　個人城邦（第三階段）</a></li><li><a href="#s7-4">第四章　暫緩：城邦戰爭</a></li></ul></li><li><a href="#s8">08　數值總表</a><ul><li><a href="#s8-1">一、通用</a></li><li><a href="#s8-2">二、物品估價</a></li><li><a href="#s8-3">三、回收</a></li><li><a href="#s8-4">四、時代與捐獻</a></li><li><a href="#s8-5">五、階級與懸賞</a></li><li><a href="#s8-6">六、交易所、稅、商店</a></li><li><a href="#s8-7">七、古代石碑與個人物品</a></li><li><a href="#s8-8">八、博物館、地圖畫、次元商人</a></li><li><a href="#s8-9">九、博弈</a></li><li><a href="#s8-10">十、公會與城邦</a></li><li><a href="#s8-11">十一、清單類設定檔（JSON）</a></li></ul></li><li><a href="#s9">09　實作對照</a><ul><li><a href="#s9-1">一、可以沿用</a></li><li><a href="#s9-2">二、必須修改（依優先順序）</a></li><li><a href="#s9-3">三、尚未實作</a></li></ul></li><li><a href="#s10">10　共用定義</a><ul><li><a href="#s10-1">第一章　程式結構</a></li><li><a href="#s10-2">第二章　共用列舉</a></li><li><a href="#s10-3">第三章　共用服務</a></li><li><a href="#s10-4">第四章　共用事件</a></li><li><a href="#s10-5">第五章　資料儲存</a></li><li><a href="#s10-6">第六章　數值與取整</a></li><li><a href="#s10-7">第七章　玩家端與伺服器</a></li><li><a href="#s10-8">第八章　文字</a></li><li><a href="#s10-9">第九章　中文與程式名稱對照</a></li></ul></li><li><a href="#s11">11　第一階段工作清單</a><ul><li><a href="#s11-1">T0　存檔與整理</a></li><li><a href="#s11-2">T1　共用基礎</a></li><li><a href="#s11-3">T2　錢包與帳本</a></li><li><a href="#s11-4">T3　共用小工具與同步</a></li><li><a href="#s11-5">T4　物品估價</a></li><li><a href="#s11-6">T5　交易稅</a></li><li><a href="#s11-7">T6　回收商</a></li><li><a href="#s11-8">T7　黑市</a></li><li><a href="#s11-9">T8　皇家交易所</a></li><li><a href="#s11-10">T9　時代與集資箱</a></li><li><a href="#s11-11">T10　懸賞板</a></li><li><a href="#s11-12">T11　NPC、契約、配方</a></li><li><a href="#s11-13">T12　商店清單</a></li><li><a href="#s11-14">T13　古代石碑分頁</a></li><li><a href="#s11-15">T14　第一階段總驗收</a></li></ul></li><li><a href="#s12">99　修訂紀錄</a><ul><li><a href="#s12-1">v4.0（2026-10-19）</a></li></ul></li></ul></nav><main><section><h1 id="s0">經濟模組套件・設計總綱</h1>
-<p>版本 v4.0（2026-10-19）｜取代 2026-04 的 v2.0／v3.0 各份 PDF 規格書</p>
+</style></head><body><div class="wrap"><nav><ul><li><a href="#s0">經濟模組套件・設計總綱</a><ul><li><a href="#s0-1">第一章　三個核心目標</a></li><li><a href="#s0-2">第二章　貨幣原則</a></li><li><a href="#s0-3">第三章　模組結構</a></li><li><a href="#s0-4">第四章　世界時代</a></li><li><a href="#s0-5">第五章　人數係數</a></li><li><a href="#s0-6">第六章　開發階段</a></li><li><a href="#s0-7">第七章　進錢與花錢總覽</a></li><li><a href="#s0-8">第八章　名詞</a></li></ul></li><li><a href="#s1">01　經濟核心</a><ul><li><a href="#s1-1">第一章　錢包與帳本</a></li><li><a href="#s1-2">第二章　模組日</a></li><li><a href="#s1-3">第三章　人數係數</a></li><li><a href="#s1-4">第四章　物品註冊</a></li><li><a href="#s1-5">第五章　NPC 與設施通則</a></li><li><a href="#s1-6">第六章　古代石碑</a></li><li><a href="#s1-7">第七章　指令</a></li></ul></li><li><a href="#s2">02　物品估價與回收</a><ul><li><a href="#s2-1">第一章　物品基準價值 V</a></li><li><a href="#s2-2">第二章　收購飽和</a></li><li><a href="#s2-3">第三章　回收 NPC</a></li><li><a href="#s2-4">第四章　黑市每日投機品</a></li><li><a href="#s2-5">第五章　交易稅</a></li></ul></li><li><a href="#s3">03　城鎮發展</a><ul><li><a href="#s3-1">第一章　時代晉升（第一階段）</a></li><li><a href="#s3-2">第二章　開拓者集資箱（第一階段）</a></li><li><a href="#s3-3">第三章　冒險者階級（第一階段）</a></li><li><a href="#s3-4">第四章　懸賞板（第一階段；自動生成懸賞為第二階段）</a></li><li><a href="#s3-5">第五章　皇家交易所（第一階段）</a></li><li><a href="#s3-6">第六章　動態交易稅（第一階段）</a></li><li><a href="#s3-7">第七章　天穹工匠（第一階段；部分商品第二階段）</a></li><li><a href="#s3-8">第八章　博物館（第二階段，開墾時代起）</a></li><li><a href="#s3-9">第九章　地圖畫（第二階段，天穹時代起）</a></li><li><a href="#s3-10">第十章　次元商人（第二階段，星辰時代起）</a></li><li><a href="#s3-11">第十一章　財富持有稅（第二階段，商業時代起）</a></li><li><a href="#s3-12">第十二章　時代的終焉危機（第三階段）</a></li><li><a href="#s3-13">第十三章　傳說魂核（第三階段）</a></li><li><a href="#s3-14">第十四章　專屬工匠（第三階段，天穹時代起）</a></li></ul></li><li><a href="#s4">04　休閒與博弈</a><ul><li><a href="#s4-1">第一章　拉霸機</a></li><li><a href="#s4-2">第二章　遊戲終端</a></li><li><a href="#s4-3">第三章　樂透</a></li><li><a href="#s4-4">第四章　怪物鬥技場</a></li></ul></li><li><a href="#s5">05　玩家公會</a><ul><li><a href="#s5-1">第一章　建立與管理</a></li><li><a href="#s5-2">第二章　等級與經驗</a></li><li><a href="#s5-3">第三章　天賦</a></li><li><a href="#s5-4">第四章　暫緩的多人功能</a></li></ul></li><li><a href="#s6">06　暫緩：證券交易所、百工議會、財經新聞</a><ul><li><a href="#s6-1">第一章　暫緩原因</a></li><li><a href="#s6-2">第二章　保留的構想</a></li><li><a href="#s6-3">第三章　重新啟動前必須解決的問題</a></li></ul></li><li><a href="#s7">07　四大權證與個人城邦</a><ul><li><a href="#s7-1">第一章　四大權證（第二階段，天穹時代起）</a></li><li><a href="#s7-2">第二章　開拓者憲章（第二階段，星辰時代起）</a></li><li><a href="#s7-3">第三章　個人城邦（第三階段）</a></li><li><a href="#s7-4">第四章　暫緩：城邦戰爭</a></li></ul></li><li><a href="#s8">08　數值總表</a><ul><li><a href="#s8-1">一、通用</a></li><li><a href="#s8-2">二、物品估價</a></li><li><a href="#s8-3">三、回收</a></li><li><a href="#s8-4">四、時代與捐獻</a></li><li><a href="#s8-5">五、階級與懸賞</a></li><li><a href="#s8-6">六、交易所、稅、商店</a></li><li><a href="#s8-7">七、古代石碑與個人物品</a></li><li><a href="#s8-8">八、博物館、地圖畫、次元商人</a></li><li><a href="#s8-9">九、博弈</a></li><li><a href="#s8-10">十、公會與城邦</a></li><li><a href="#s8-11">十一、清單類設定檔（JSON）</a></li></ul></li><li><a href="#s9">09　實作對照</a><ul><li><a href="#s9-1">一、可以沿用</a></li><li><a href="#s9-2">二、必須修改（依優先順序）</a></li><li><a href="#s9-3">三、尚未實作</a></li></ul></li><li><a href="#s10">10　共用定義</a><ul><li><a href="#s10-1">第一章　程式結構</a></li><li><a href="#s10-2">第二章　共用列舉</a></li><li><a href="#s10-3">第三章　共用服務</a></li><li><a href="#s10-4">第四章　共用事件</a></li><li><a href="#s10-5">第五章　資料儲存</a></li><li><a href="#s10-6">第六章　數值與取整</a></li><li><a href="#s10-7">第七章　玩家端與伺服器</a></li><li><a href="#s10-8">第八章　文字</a></li><li><a href="#s10-9">第九章　中文與程式名稱對照</a></li></ul></li><li><a href="#s11">11　第一階段工作清單</a><ul><li><a href="#s11-1">T0　存檔與整理</a></li><li><a href="#s11-2">T1　共用基礎</a></li><li><a href="#s11-3">T2　錢包與帳本</a></li><li><a href="#s11-4">T3　共用小工具與同步</a></li><li><a href="#s11-5">T4　物品估價</a></li><li><a href="#s11-6">T5　交易稅</a></li><li><a href="#s11-7">T6　回收商</a></li><li><a href="#s11-8">T7　黑市</a></li><li><a href="#s11-9">T8　皇家交易所</a></li><li><a href="#s11-10">T9　時代與集資箱</a></li><li><a href="#s11-11">T10　懸賞板</a></li><li><a href="#s11-12">T11　NPC、契約、配方</a></li><li><a href="#s11-13">T12　商店清單</a></li><li><a href="#s11-14">T13　古代石碑分頁</a></li><li><a href="#s11-15">T14　第一階段總驗收</a></li></ul></li><li><a href="#s12">99　修訂紀錄</a><ul><li><a href="#s12-1">v4.1（2026-11-05）</a></li><li><a href="#s12-2">v4.0（2026-10-19）</a></li></ul></li></ul></nav><main><section><h1 id="s0">經濟模組套件・設計總綱</h1>
+<p>版本 v4.1（2026-11-05）｜取代 2026-04 的 v2.0／v3.0 各份 PDF 規格書</p>
 <hr />
 <h2 id="s0-1">第一章　三個核心目標</h2>
 <p>所有系統設計都要能通過這三條檢驗。兩條衝突時，依下表的優先順序取捨。</p>
@@ -52,10 +52,10 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_3">1.1 目標 1 與目標 2 的衝突與解法</h3>
+<h3 id="11-1-2">1.1 目標 1 與目標 2 的衝突與解法</h3>
 <p>「所有東西都能賣錢」會讓能大量生產的東西變成印鈔機。解法是<strong>收購飽和</strong>：</p>
 <ul>
-<li>每種物品都能賣，但<strong>全服同一種物品賣得越多，收購價越低</strong>。</li>
+<li>每種物品都能賣，但<strong>全服同一來源（同一物品族）的物品賣得越多，收購價越低</strong>。</li>
 <li>沒人賣的期間，價格每天<strong>自動回升一部分</strong>。</li>
 <li>每位玩家每天的回收總收入另有<strong>上限</strong>。</li>
 </ul>
@@ -76,7 +76,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 <tr>
 <td>封閉</td>
-<td>希爾<strong>不能</strong>在玩家之間轉帳、交易或掠奪。任何功能都不得變相轉移（例如：城邦國庫不能提領到個人帳戶）</td>
+<td>希爾<strong>不能</strong>在玩家之間轉帳、交易或掠奪。任何功能都不得變相轉移（例如：城邦國庫不能提領到個人帳戶）。唯一例外是樂透與鬥技場的彩池派彩（〈04〉），只在有多人參與時才會發生</td>
 </tr>
 <tr>
 <td>與綠寶石脫鉤</td>
@@ -325,7 +325,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <tr>
 <td>進錢</td>
 <td>皇家交易所賣出</td>
-<td>每人每日每品項數量上限＋賣越多價越低</td>
+<td>每人每日賣出收入上限＋每品項數量上限＋賣越多價越低</td>
 <td>一</td>
 </tr>
 <tr>
@@ -397,8 +397,12 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>每種物品的參考價，所有買賣價格都由它推出（〈02〉第一章）</td>
 </tr>
 <tr>
+<td>物品族</td>
+<td>來源相同的物品歸為一族，例如圓石與圓石樓梯（〈02〉1.6）</td>
+</tr>
+<tr>
 <td>收購飽和</td>
-<td>同一種物品全服賣越多，回收價越低的機制（〈02〉第二章）</td>
+<td>同一物品族全服賣越多，回收價越低的機制（〈02〉第二章）</td>
 </tr>
 <tr>
 <td>人數係數 S(N)</td>
@@ -422,16 +426,16 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div></section><section><h1 id="s1">01　經濟核心</h1>
-<p>版本 v4.0（2026-10-19）｜第一階段</p>
+<p>版本 v4.1（2026-11-05）｜第一階段</p>
 <p>本篇定義所有其他系統都會用到的基礎：錢包、帳本、時間、人數、NPC 與設施的通則、古代石碑、物品註冊。</p>
 <hr />
 <h2 id="s1-1">第一章　錢包與帳本</h2>
-<h3 id="_3">1.1 錢包</h3>
+<h3 id="11">1.1 錢包</h3>
 <ul>
-<li>每位玩家一個錢包，存整數希爾，存在玩家資料上，死亡不會損失。</li>
+<li>每位玩家一個錢包，存整數希爾，存在玩家資料上，死亡與從終界返回都不會損失。</li>
 <li>餘額不得為負數；加錢時若超過程式可存的上限則停在上限，不會溢位變負數。</li>
 </ul>
-<h3 id="_4">1.2 唯一入口</h3>
+<h3 id="12">1.2 唯一入口</h3>
 <p>所有加減錢只能透過以下三個動作，<strong>其他程式不得直接改餘額</strong>：</p>
 <div class="tw"><table>
 <thead>
@@ -459,7 +463,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_5">1.3 帳本</h3>
+<h3 id="13">1.3 帳本</h3>
 <ul>
 <li>每筆加減錢記一行：模組日、玩家、金額（正負）、事由分類、事由細節。</li>
 <li>事由分類固定為〈10 共用定義〉2.4 節的清單。</li>
@@ -467,7 +471,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <li>管理員指令 <code>/economy report [天數]</code>：列出期間內各事由分類的總進、總出與全服流通總額。這是判斷是否通膨的主要工具。</li>
 <li>玩家可在古代石碑「帳本」頁看到自己最近 20 筆收支。</li>
 </ul>
-<h3 id="_6">1.4 「先扣錢、後給物品」的保護</h3>
+<h3 id="14">1.4 「先扣錢、後給物品」的保護</h3>
 <p>購買物品時，若玩家背包放不下，放不下的部分<strong>掉落在玩家腳下</strong>，不得消失。</p>
 <hr />
 <h2 id="s1-2">第二章　模組日</h2>
@@ -604,14 +608,14 @@ hr{border:0;border-top:1px solid var(--line)}
 <li>拓荒時代就能做的（石碑、集資箱、回收商契約）只用木頭、石頭、鐵等前期材料。</li>
 <li>時代較後的方塊在合成上不設限，但<strong>放置後若時代未到，右鍵只顯示「需要 ○○ 時代」</strong>。</li>
 </ul>
-<h3 id="_10">4.1 掛鎖規則（第二階段）</h3>
+<h3 id="41">4.1 掛鎖規則（第二階段）</h3>
 <ul>
 <li>手持掛鎖右鍵容器方塊（箱子、木桶、界伏盒等）即上鎖，消耗 1 個掛鎖，記錄放鎖玩家。</li>
 <li>其他玩家無法開啟、無法破壞、無法用漏斗從上鎖容器抽出物品；爆炸不會破壞上鎖容器。</li>
 <li>放鎖玩家可直接開啟；手持萬能鑰匙蹲下右鍵可拆鎖並取回掛鎖。</li>
 <li>管理員可無視掛鎖。</li>
 </ul>
-<h3 id="_11">4.2 界碑石規則（第二階段）</h3>
+<h3 id="42">4.2 界碑石規則（第二階段）</h3>
 <ul>
 <li>放置後成為個人傳送點，名稱可自訂。</li>
 <li>每人最多 3 個；達 C 級 +1、達 A 級 +1。</li>
@@ -619,7 +623,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </ul>
 <hr />
 <h2 id="s1-5">第五章　NPC 與設施通則</h2>
-<h3 id="_13">5.1 NPC</h3>
+<h3 id="51-npc">5.1 NPC</h3>
 <ul>
 <li>以契約召喚：手持契約右鍵地面，生成 NPC，契約消耗。</li>
 <li>NPC <strong>不會受傷、不會被推動、不會移動、不會自然消失</strong>。</li>
@@ -627,12 +631,12 @@ hr{border:0;border-top:1px solid var(--line)}
 <li>時代未到時，NPC 介面只顯示「需要 ○○ 時代」。</li>
 <li>同一種 NPC 可以有多個（方便多人伺服器設在不同地點）。</li>
 </ul>
-<h3 id="_14">5.2 介面與距離</h3>
+<h3 id="52">5.2 介面與距離</h3>
 <ul>
 <li>玩家離開 NPC 或設施超過 8 格，介面自動關閉。</li>
 <li>伺服器收到任何買賣請求時，都要確認玩家<strong>目前開著對應介面</strong>且在距離內，否則不處理。</li>
 </ul>
-<h3 id="_15">5.3 設定檔</h3>
+<h3 id="53">5.3 設定檔</h3>
 <ul>
 <li>所有可調整的清單與數值放在伺服器的設定資料夾 <code>config/economycore/</code>，一覽見〈08 數值總表〉。</li>
 <li>玩家連上伺服器時，伺服器把會影響畫面的清單（懸賞、回收價格、投機品、交易所品項）<strong>傳給玩家端</strong>，玩家端不讀自己電腦上的設定檔。</li>
@@ -640,9 +644,9 @@ hr{border:0;border-top:1px solid var(--line)}
 </ul>
 <hr />
 <h2 id="s1-6">第六章　古代石碑</h2>
-<h3 id="_17">6.1 定位</h3>
+<h3 id="61">6.1 定位</h3>
 <p>隨身終端。手持右鍵開啟。由分頁組成，其他系統各自登記自己的分頁。</p>
-<h3 id="_18">6.2 分頁</h3>
+<h3 id="62">6.2 分頁</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -684,7 +688,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_19">6.3 服務</h3>
+<h3 id="63">6.3 服務</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -765,7 +769,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div></section><section><h1 id="s2">02　物品估價與回收</h1>
-<p>版本 v4.0（2026-10-19）｜第一階段（投機品亦為第一階段）</p>
+<p>版本 v4.1（2026-11-05）｜第一階段（投機品亦為第一階段）</p>
 <p>本篇是「所有物品都有價值」與「不通膨」兩個目標的交會點。它取代舊規格中三個分散的系統：<strong>廢品回收站、黑市大宗回收、萬物收購商</strong>，合併成同一套估價與回收規則。</p>
 <hr />
 <h2 id="s2-1">第一章　物品基準價值 V</h2>
@@ -812,26 +816,31 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>這個倍率排序保證「低價買進、高價賣出」的套利路線不存在：任何回收價（最多 0.5V）都低於任何購買價（最低 0.6V）。</p>
-<h3 id="_3">1.1 V 的決定順序</h3>
+<h3 id="11-v">1.1 V 的決定順序</h3>
 <p>依序套用，先取得者為準：</p>
 <ol>
 <li><strong>設定檔覆寫</strong>：<code>item_values.json</code> 中手動指定的值。</li>
 <li><strong>內建基準表</strong>：原版原料的預設值（1.4 節），也寫在 <code>item_values.json</code> 的預設內容裡，可修改。</li>
 <li><strong>配方推算</strong>：由合成、熔煉、切石、鍛造台配方推算（1.2 節）。其他模組的物品主要靠這一步。</li>
-<li><strong>稀有度預設</strong>：推不出來的物品，依遊戲本身的稀有度標記給值（1.3 節）。</li>
+<li><strong>模組預設</strong>：<code>item_values.json</code> 中替某個模組指定的預設值，套用於該模組推不出來的物品。</li>
+<li><strong>稀有度預設</strong>：其餘推不出來的物品，依遊戲本身的稀有度標記給值（1.3 節）。</li>
 </ol>
+<p>走到第 4、5 步的物品另外列入 <code>item_values_unresolved.json</code>（物品、所屬模組、採用的預設值），方便逐一補上合理的價值。</p>
 <p>伺服器啟動時計算一次全部物品的 V，結果寫到 <code>item_values_computed.json</code> 供查看；管理員可用 <code>/economy value &lt;物品&gt;</code> 查詢某物品的 V 與它是怎麼算出來的。</p>
-<h3 id="_4">1.2 配方推算</h3>
+<h3 id="12">1.2 配方推算</h3>
 <ul>
 <li>合成：產物 V ＝（所有材料 V 加總 ÷ 產出數量）× 1.10。</li>
 <li>熔煉：產物 V ＝（原料 V ＋ 燃料分攤 1）× 1.10。</li>
 <li>切石：產物 V ＝ 原料 V ÷ 產出數量。</li>
+<li>鍛造台：產物 V ＝（底材 V ＋ 模板 V ＋ 材料 V）× 1.10。盔甲紋飾只改外觀、不產生新物品，不參與推算。</li>
+<li>高爐、煙燻爐、營火的配方一律視為熔煉。</li>
+<li>其他模組的配方類型：能透過遊戲的共用配方介面讀到材料與產物的，用合成公式計算；讀不到的不推算，交給模組預設或稀有度預設。</li>
 <li>同一物品有多條配方時，取<strong>最低</strong>的結果。</li>
 <li>配方互相循環（例如鐵錠與鐵磚）時，以已有值的一方為準，不重複計算。</li>
 <li>推算深度上限 10 層，超過視為推不出來。</li>
 <li>材料可被替換的格子（例如任一種木板），取該組中最便宜的。</li>
 </ul>
-<h3 id="_5">1.3 稀有度預設</h3>
+<h3 id="13">1.3 稀有度預設</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -858,8 +867,8 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_6">1.4 內建基準表（節錄）</h3>
-<p>完整表格放在 <code>item_values.json</code> 的預設內容，以下列出決定整體物價尺度的代表項目。</p>
+<h3 id="14">1.4 內建基準表</h3>
+<p>以下內容就是 <code>item_values.json</code> 的預設內容，可修改。表外的原版物品走配方推算或稀有度預設，推不出來的同樣列入 <code>item_values_unresolved.json</code>。</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -873,6 +882,10 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>泥土 0.3、圓石 0.5、沙子 0.5、沙礫 0.5、石頭 0.6、地獄石 0.3、終界石 1</td>
 </tr>
 <tr>
+<td>地表與石材</td>
+<td>粗泥 0.3、灰化土 0.5、菌絲土 0.5、紅沙 0.5、黏土球 1、深板岩圓石 0.5、安山岩 0.5、閃長岩 0.5、花崗岩 0.5、凝灰岩 0.5、方解石 1、滴水石塊 1、黑石 0.5、玄武岩 0.5、靈魂沙 1、靈魂土 1、黑曜石 8、哭泣黑曜石 20、冰 0.5、雪球 0.2</td>
+</tr>
+<tr>
 <td>木材</td>
 <td>各種原木 2</td>
 </tr>
@@ -881,12 +894,20 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>小麥 1、種子 0.2、甘蔗 1、海帶 0.3、竹子 0.3、馬鈴薯 1、胡蘿蔔 1、西瓜片 0.3、南瓜 2</td>
 </tr>
 <tr>
+<td>植物</td>
+<td>樹苗 0.5、樹葉 0.2、各種花 1、蘑菇 1、藤蔓 0.2、仙人掌 0.5、荷葉 0.5、海草 0.2、珊瑚 1、苔蘚塊 0.5、甜莓 0.5、發光莓 0.5、可可豆 1、甜菜根 1、地獄疣 2</td>
+</tr>
+<tr>
+<td>動物與魚</td>
+<td>白色羊毛 1、羽毛 1、皮革 3、蛋 0.5、各種生肉 1、兔皮 2、兔腳 20、墨囊 2、發光墨囊 6、鱗甲 30、蜂巢片 2、鱈魚 1、鮭魚 1、熱帶魚 2、河豚 2</td>
+</tr>
+<tr>
 <td>生物掉落</td>
-<td>腐肉 0.5、骨頭 2、線 2、火藥 4、蜘蛛眼 4、史萊姆球 8、終界珍珠 20、烈焰桿 30、地獄幽靈之淚 60、夜魅膜 20</td>
+<td>腐肉 0.5、骨頭 2、線 2、火藥 4、蜘蛛眼 4、史萊姆球 8、終界珍珠 20、烈焰桿 30、地獄幽靈之淚 60、夜魅膜 20、海晶碎片 4、海晶砂礫 8、歌萊果 2、龍息 100、海綿 100、濕海綿 100、凋零骷髏頭 500、其他生物頭顱 200</td>
 </tr>
 <tr>
 <td>礦物</td>
-<td>煤炭 8、粗銅 3、粗鐵 12、粗金 20、紅石 4、青金石 8、石英 6、鑽石 150、遠古遺骸 600</td>
+<td>煤炭 8、粗銅 3、粗鐵 12、粗金 20、紅石 4、青金石 8、石英 6、紫水晶碎片 4、螢石粉 3、鑽石 150、遠古遺骸 600；各種礦石方塊等於一般開採掉落物的 V（例：鑽石礦 150）</td>
 </tr>
 <tr>
 <td>稀有物</td>
@@ -894,7 +915,11 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 <tr>
 <td>收藏型</td>
-<td>唱片 300、陶器碎片 150、盔甲紋飾鍛造模板 400、獄髓升級模板 1,500、馬鎧 100～300、鞍 80、命名牌 80</td>
+<td>唱片 300、陶器碎片 150、盔甲紋飾鍛造模板 400、獄髓升級模板 1,500、鐵馬鎧 100、金馬鎧 200、鑽石馬鎧 300、鞍 80、命名牌 80、鐘 100</td>
+</tr>
+<tr>
+<td>固定價</td>
+<td>藥水 10、噴濺藥水 15、滯留藥水 20、藥箭 2、附魔書 40。這些物品的種類存在物品資料裡，配方無法推算，不論效果都用同一個 V</td>
 </tr>
 <tr>
 <td>不參與回收</td>
@@ -903,25 +928,33 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>由內建表推算出的例子：鐵錠 ≈ 14、金錠 ≈ 23、獄髓錠 ≈ 3,010。</p>
-<h3 id="_7">1.5 物品狀態</h3>
+<h3 id="15">1.5 物品狀態</h3>
 <ul>
 <li>有耐久度的物品：V × 剩餘耐久比例。</li>
 <li><strong>附魔不加價</strong>（避免以綠寶石向村民買附魔書再賣出套利）。</li>
 <li>裝有物品的容器（例如有內容物的界伏盒）<strong>拒收</strong>，避免連同內容物被當成空盒賣掉。</li>
 <li>改名、自訂資料不影響 V。</li>
 </ul>
+<h3 id="16">1.6 物品族</h3>
+<p>收購飽和與捐獻遞減都按「物品族」累計，避免把同一批原料做成不同型態來躲開遞減。</p>
+<ul>
+<li>由設定檔、基準表或預設取得 V 的物品，自成一族。</li>
+<li>由配方推算 V 的物品，沿用算出 V 的那條配方，歸入其中「價值佔比最高的材料」的族。染料不算主材料；價值相同時取物品名稱字母序最前者。</li>
+<li><code>item_values.json</code> 可替物品手動指定 <code>family</code>。基準表預設把石頭與深板岩歸入圓石、深板岩圓石，各色羊毛歸入白色羊毛。</li>
+</ul>
+<p>例：圓石樓梯、圓石牆都屬於圓石族；各色玻璃屬於沙子族；鐵方塊、鐵柵欄都屬於粗鐵族；獄髓方塊屬於遠古遺骸族。</p>
 <hr />
 <h2 id="s2-2">第二章　收購飽和</h2>
-<h3 id="_9">2.1 規則</h3>
+<h3 id="21">2.1 規則</h3>
 <ul>
-<li>伺服器為每種物品記錄一個「近期回收量」A，單位是 V（也就是「賣了價值多少的這種東西」）。</li>
+<li>伺服器為每個物品族記錄一個「近期回收量」A，單位是 V（也就是「賣了價值多少的這一族東西」）。</li>
 <li>收購飽和係數 ＝ e 的（−A ÷ K）次方。A 為 0 時係數是 1（全價）；A 等於 K 時約 0.37；A 是 K 的 3 倍時約 0.05。</li>
 <li>K（飽和基準量）＝ 5,000 × 活躍人數的平方根。人多時全服共用的額度較大。</li>
 <li>一次賣出多個時，價格按連續遞減計算（不是整批用同一個價格）。</li>
-<li>每個模組日開始時，所有物品的 A 乘以 0.8（也就是每天回升約 20%）。</li>
+<li>每個模組日開始時，所有物品族的 A 乘以 0.8（近期回收量每天減少 20%；例如行情 37% 隔天回到約 45%）。</li>
 <li>回收商與黑市<strong>共用</strong>同一個 A。</li>
 </ul>
-<h3 id="_10">2.2 效果試算（單人，K ＝ 5,000，回收商 0.30）</h3>
+<h3 id="22-k-5000-030">2.2 效果試算（單人，K ＝ 5,000，回收商 0.30）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -939,33 +972,37 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>收入逐日下降，穩定後每天約 17 希爾</td>
 </tr>
 <tr>
-<td>每天賣 20 種不同物品、每種價值 200</td>
-<td>每種幾乎都是全價，約 1,200 希爾（受每日上限約束）</td>
+<td>每天賣 20 個不同物品族、每族價值 200</td>
+<td>每族幾乎都是全價，約 1,200 希爾（受每日上限約束）</td>
+</tr>
+<tr>
+<td>把 10,000 個圓石做成樓梯、牆等多種型態再賣</td>
+<td>全部算在圓石族，收入與直接賣圓石相同（不計加工加成）</td>
 </tr>
 </tbody>
 </table></div>
-<p>結論：量產單一物品賺不了錢；多樣化地蒐集與探索才有收入。量產的物品仍可拿去捐獻換文明點數（捐獻有自己的遞減，見〈03〉）。</p>
-<h3 id="_11">2.3 介面顯示</h3>
+<p>結論：量產單一來源的物品賺不了錢；多樣化地蒐集與探索才有收入。量產的物品仍可拿去捐獻換文明點數（捐獻有自己的遞減，見〈03〉）。</p>
+<h3 id="23">2.3 介面顯示</h3>
 <ul>
 <li>每個品項顯示「目前收購價／個」與「目前行情：全價的 ○○%」。</li>
-<li>滑鼠停在行情上時，顯示一句說明：「全服近期回收越多，價格越低；每天回升約 20%」。</li>
+<li>滑鼠停在行情上時，顯示一句說明：「同一來源的物品全服近期回收越多，價格越低；近期回收量每天減少 20%」。</li>
 </ul>
 <hr />
 <h2 id="s2-3">第三章　回收 NPC</h2>
-<h3 id="_13">3.1 回收商</h3>
+<h3 id="31">3.1 回收商</h3>
 <ul>
 <li>拓荒時代起可用，以「回收商契約」召喚。</li>
 <li>收購所有 V &gt; 0 且不在拒收名單的物品（含其他模組物品），收購價為 V × 0.30 × 收購飽和。</li>
 <li>介面：54 格放置區，顯示預估總價，「全部賣出」一鍵完成；拒收的物品留在格子裡並標示原因。</li>
 </ul>
-<h3 id="_14">3.2 黑市商人</h3>
+<h3 id="32">3.2 黑市商人</h3>
 <ul>
 <li>商業時代起可用，以「黑市契約」召喚。</li>
 <li>大宗收購：規則同回收商，但收購價為 V × 0.50 × 收購飽和。</li>
 <li>另有「每日投機品」分頁（第四章）。</li>
 <li>只收購，不販售任何東西。</li>
 </ul>
-<h3 id="_15">3.3 每日回收上限</h3>
+<h3 id="33">3.3 每日回收上限</h3>
 <p>回收商與黑市大宗收購<strong>合計</strong>，每位玩家每個模組日的稅前收入上限：</p>
 <div class="tw"><table>
 <thead>
@@ -1034,16 +1071,17 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<p>投機品池（<code>blackmarket_speculation.json</code>，可擴充其他模組物品）預設包含：所有唱片、所有陶器碎片、所有盔甲紋飾鍛造模板、所有馬鎧、鞍、命名牌、鸚鵡螺殼、三叉戟、鐘、回聲碎片、海洋之心。</p>
-<p><strong>投機品池只能放「無法農場量產」的物品</strong>。舊程式的投機品池放了鐵錠、火藥、甘蔗等可量產物，違反這條，需移除。</p>
+<p>投機品池（<code>blackmarket_speculation.json</code>，可擴充其他模組物品）預設包含：唱片 Pigstep、otherside、5、Relic，所有陶器碎片，鐵馬鎧、金馬鎧、鑽石馬鎧，回聲碎片，海洋之心。</p>
+<p><strong>投機品池只能放無法靠農場、村民交易或複製配方大量取得的物品</strong>。舊程式的投機品池放了鐵錠、火藥、甘蔗等可量產物，違反這條，需移除。</p>
+<p>說明：v4.0 的預設池含其他唱片（苦力怕農場）、三叉戟與鸚鵡螺殼（溺屍農場）、鞍、命名牌、鐘（釣魚或村民交易）、盔甲紋飾模板（可用鑽石複製）、皮革馬鎧（可合成），同樣違反這條，已移出。它們仍可一般回收、捐獻與收藏。</p>
 <hr />
 <h2 id="s2-5">第五章　交易稅</h2>
 <p>所有「賣東西換錢」的行為都要課動態交易稅，規則見〈03〉第六章。回收、投機品、交易所賣出共用同一個每日累計額。</p></section><section><h1 id="s3">03　城鎮發展</h1>
-<p>版本 v4.0（2026-10-19）｜各章階段標於章名</p>
+<p>版本 v4.1（2026-11-05）｜各章階段標於章名</p>
 <p>本篇是遊戲主線：時代演進、冒險者階級、懸賞、交易所與稅、商店、收藏，以及終局擴充內容。</p>
 <hr />
 <h2 id="s3-1">第一章　時代晉升（第一階段）</h2>
-<h3 id="_3">1.1 晉升條件</h3>
+<h3 id="11">1.1 晉升條件</h3>
 <p>四類條件<strong>全部達成</strong>才晉升。文明點數與捐獻希爾都乘上人數係數 S(N)（〈00〉第五章）。</p>
 <div class="tw"><table>
 <thead>
@@ -1124,20 +1162,20 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>說明：舊規格只用文明點數決定時代，且程式中的捐獻總量有天花板（約 18.75 萬），工業以後的時代永遠到不了。新規則加入捐獻希爾（前期就有花錢的地方）、階級與遊戲進度，並讓所有物品都能捐。</p>
-<h3 id="_4">1.2 文明點數的計算</h3>
+<h3 id="12">1.2 文明點數的計算</h3>
 <ul>
 <li>所有 V &gt; 0 且不在拒收名單的物品都可以捐（〈02〉1.4）。</li>
-<li>每種物品記錄「全服累計捐獻價值」D。</li>
-<li>每種物品的飽和量 T ＝ 50,000 × S(N)。</li>
+<li>每個物品族（〈02〉1.6）記錄「全服累計捐獻價值」D。</li>
+<li>每個物品族的飽和量 T ＝ 50,000 × S(N)。</li>
 <li>這次捐獻價值為 x 時，獲得文明點數 ＝ T ×（e 的 −D÷T 次方 − e 的 −(D+x)÷T 次方）。</li>
-<li>白話：同一種物品捐得越多，換到的點數越少；一種物品最多只能換到 T 點。</li>
+<li>白話：同一族物品捐得越多，換到的點數越少；一族最多只能換到 T 點。</li>
 <li>文明點數以小數累計，<strong>不設「每次至少 1 點」</strong>（舊程式有此規則，導致一個一個捐反而比較划算）。</li>
-<li>每個模組日，所有物品的 D 乘以 0.98（緩慢恢復），讓長期遊玩不會把所有物品都捐到飽和。</li>
+<li>每個模組日，所有物品族的 D 乘以 0.98（緩慢恢復），讓長期遊玩不會把所有物品都捐到飽和。</li>
 </ul>
-<p>單人時 T ＝ 7,500，星辰時代需要的 225,000 點約相當於 30 種以上的物品捐到接近飽和。<strong>時代晉升的關鍵在於捐獻的多樣性</strong>，這正好呼應「所有物品都有價值」。</p>
-<h3 id="_5">1.3 捐獻希爾</h3>
+<p>單人時 T ＝ 7,500，星辰時代需要的 225,000 點約相當於 30 個以上的物品族捐到接近飽和。<strong>時代晉升的關鍵在於捐獻的多樣性</strong>，這正好呼應「所有物品都有價值」。</p>
+<h3 id="13">1.3 捐獻希爾</h3>
 <p>在集資箱介面輸入金額捐獻；捐獻額超過本時代剩餘需求的部分不收。捐出的希爾直接銷毀（不進任何人的口袋）。</p>
-<h3 id="_6">1.4 時代晉升時</h3>
+<h3 id="14">1.4 時代晉升時</h3>
 <ul>
 <li>全服廣播、播放音效。</li>
 <li>送出「時代改變」事件，其他系統（NPC、商店、交易所）據此解鎖功能。</li>
@@ -1147,7 +1185,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <p>拓荒時代起可用的方塊。介面內容：</p>
 <ul>
 <li>本時代四類條件的進度條。</li>
-<li>捐獻格：放入物品後顯示「目前兌換率 ○○%」與預估點數；滑鼠停在兌換率上說明「同一種物品捐得越多，兌換率越低」。</li>
+<li>捐獻格：放入物品後顯示「目前兌換率 ○○%」與預估點數；滑鼠停在兌換率上說明「同一來源的物品捐得越多，兌換率越低」。</li>
 <li>「全部捐獻」按鈕：捐出背包中所有可捐的物品（不含快捷欄與裝備欄，避免誤捐工具）。</li>
 <li>捐獻希爾的輸入欄。</li>
 </ul>
@@ -1205,7 +1243,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </ul>
 <hr />
 <h2 id="s3-4">第四章　懸賞板（第一階段；自動生成懸賞為第二階段）</h2>
-<h3 id="_10">4.1 每日抽樣</h3>
+<h3 id="41">4.1 每日抽樣</h3>
 <p>每位玩家每個模組日看到自己的一組懸賞（同一玩家同一天結果固定，不能重抽）。</p>
 <div class="tw"><table>
 <thead>
@@ -1237,20 +1275,23 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_11">4.2 任務類型與判定</h3>
+<p>「上一級」指較高階，「下一級」指較低階。抽取範圍超出 F～S 時，該部分機率併入本階級。</p>
+<h3 id="42">4.2 任務類型與判定</h3>
 <ul>
 <li><strong>擊殺</strong>：最後一擊由玩家本人或其投射物造成才算。終界龍與凋零怪例外：死亡時 128 格內曾造成傷害的玩家都算。</li>
 <li><strong>蒐集</strong>：回報時背包中數量足夠即完成，物品被收走。</li>
 <li>回報必須在懸賞板前進行（〈01〉5.2 的距離規則）。</li>
 <li>懸賞清單在 <code>bounties.json</code>，伺服器同步給玩家端。</li>
 </ul>
-<h3 id="_12">4.3 自動生成蒐集懸賞（第二階段）</h3>
+<h3 id="43">4.3 自動生成蒐集懸賞（第二階段）</h3>
 <p>讓其他模組的物品也能成為任務目標。</p>
 <ul>
-<li>從「本世界曾被任一玩家撿起過的物品」中，隨機挑一種 V 落在本階級價值帶內的物品。</li>
-<li>數量 ＝ 價值帶中位數 ÷ V，無條件進位。</li>
+<li>從「本世界曾被任一玩家撿起過的物品」中隨機挑一種，條件是可回收、V 不超過價值帶上限，且算出的數量不超過 256 個。</li>
+<li>數量 ＝ 價值帶中位數 ÷ V，無條件進位，所以任務總價值約等於中位數。</li>
 <li>獎勵：希爾 ＝ 物品總價值 × 1.0；RP 依下表。</li>
+<li>沒有符合條件的物品時，當天這一欄從缺。</li>
 </ul>
+<p>說明：v4.0 要求物品單價落在價值帶內，但 S 級的 2 萬～6 萬在原版只有獄髓方塊符合。改為看任務總價值。</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -1297,7 +1338,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_13">4.4 特殊掉落</h3>
+<h3 id="44">4.4 特殊掉落</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -1337,10 +1378,10 @@ hr{border:0;border-top:1px solid var(--line)}
 <hr />
 <h2 id="s3-5">第五章　皇家交易所（第一階段）</h2>
 <p>商業時代起可用的方塊。以浮動價格雙向買賣少數「戰略物資」。交易對象是系統。</p>
-<h3 id="_15">5.1 品項</h3>
+<h3 id="51">5.1 品項</h3>
 <p>預設：鑽石、獄髓錠、遠古遺骸、海綿、界伏殼、地獄之星。清單在 <code>exchange_items.json</code>。</p>
 <p><strong>綠寶石與金錠移出</strong>：綠寶石違反貨幣與綠寶石脫鉤原則；金錠可用金農場大量生產，交給回收系統處理。</p>
-<h3 id="_16">5.2 價格</h3>
+<h3 id="52">5.2 價格</h3>
 <ul>
 <li>中間價 ＝ V ×（理想庫存 ÷ 目前庫存）的 0.6 次方，並限制在 0.6V 到 3V 之間。</li>
 <li>玩家買價 ＝ 中間價 × 1.10；玩家賣價 ＝ 中間價 × 0.90。</li>
@@ -1348,14 +1389,35 @@ hr{border:0;border-top:1px solid var(--line)}
 <li>庫存為 0 時「購買」按鈕停用，顯示「暫時缺貨」。</li>
 </ul>
 <p>說明：舊規格買和賣用不同的敏感度（0.8 與 0.5），導致庫存很高時買價反而低於賣價，可以「買進再賣回」無限賺錢。新規則兩邊用同一個敏感度，買價永遠比賣價高 22%。</p>
-<h3 id="_17">5.3 庫存</h3>
+<h3 id="53">5.3 庫存</h3>
 <ul>
 <li>理想庫存與初始庫存相同，預設：鑽石 200、獄髓錠 10、遠古遺骸 20、海綿 80、界伏殼 40、地獄之星 4，再乘上 S(N)，無條件進位。</li>
 <li>每個模組日，庫存往理想庫存靠近「差距的 10%」（至少移動 1）。模擬市場自然消化與補貨。</li>
 </ul>
-<h3 id="_18">5.4 每日數量上限</h3>
+<h3 id="54">5.4 每日數量上限</h3>
 <p>每位玩家每個模組日、每個品項：買最多 64 個、賣最多 64 個。</p>
-<h3 id="_19">5.5 與其他系統的關係</h3>
+<h3 id="541">5.4.1 每日賣出收入上限</h3>
+<p>每位玩家每個模組日在交易所賣出的稅前收入合計有上限，與回收上限分開計算。超過上限的數量不收，留在玩家身上。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>時代</th>
+<th>商業</th>
+<th>天穹</th>
+<th>星辰</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每日上限（希爾）</td>
+<td>6,000</td>
+<td>10,000</td>
+<td>15,000</td>
+</tr>
+</tbody>
+</table></div>
+<p>說明：v4.0 只限數量，而賣價有 0.54V 的下限。單人每天賣滿 64 個，幾天後價格就不再下跌，地獄之星每天可得約 172,800 希爾，遠超過回收上限。</p>
+<h3 id="55">5.5 與其他系統的關係</h3>
 <ul>
 <li>交易所的品項<strong>不得出現在任何 NPC 商店</strong>，避免從商店買進再賣給交易所。</li>
 <li>交易所的最低買價（0.66V）高於任何回收價（最高 0.5V），所以「從交易所買來拿去回收」不會賺錢。</li>
@@ -1389,6 +1451,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <li>分段累進：只有超過門檻的部分適用較高稅率。</li>
 <li>每個模組日歸零。</li>
 <li>公會天賦可降低稅率（〈05〉）。</li>
+<li>入帳方式：先以對應事由（回收、投機品、交易所賣）存入稅前金額，再以 <code>SALE_TAX</code> 扣除稅額，帳本記兩筆。這樣帳本加總才會等於實際餘額變化。</li>
 </ul>
 <hr />
 <h2 id="s3-7">第七章　天穹工匠（第一階段；部分商品第二階段）</h2>
@@ -1454,19 +1517,19 @@ hr{border:0;border-top:1px solid var(--line)}
 <hr />
 <h2 id="s3-8">第八章　博物館（第二階段，開墾時代起）</h2>
 <p>讓「每種物品至少有一次價值」，且與財富無關。</p>
-<h3 id="_23">8.1 收錄</h3>
+<h3 id="81">8.1 收錄</h3>
 <ul>
 <li>在古代石碑「圖鑑」頁或博物館方塊放入一件物品即收錄（物品被收走）。每位玩家各自收藏。</li>
 <li>每種物品只能收錄一次。可收錄範圍：所有 V &gt; 0 的物品，含其他模組物品。</li>
 <li>首次收錄獎勵：V × 0.5 希爾（一次性，不受收購飽和與每日上限影響）。</li>
 </ul>
-<h3 id="_24">8.2 分館</h3>
+<h3 id="82">8.2 分館</h3>
 <ul>
 <li>原版物品依類別分館：礦物與方塊、植物與農作、生物掉落、工具與裝備、稀有與收藏。</li>
 <li>每個其他模組自動成為一個分館，以該模組名稱命名。</li>
 <li>分館收齊時：一次性獎勵 ＝ 該分館所有物品 V 總和 × 0.2，並獲得稱號「○○館策展人」。</li>
 </ul>
-<h3 id="_25">8.3 榮譽展位（天穹時代起）</h3>
+<h3 id="83">8.3 榮譽展位（天穹時代起）</h3>
 <ul>
 <li>全服展位數 ＝ 50 × S(N)，無條件進位，至少 5 個。</li>
 <li>價格 ＝ 3,000,000 × S(N)，一次性，錢直接銷毀。</li>
@@ -1771,7 +1834,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <li><strong>下注者不到 2 人時，該場取消下注並全額退還</strong>，只能觀戰。鬥技場的下注屬於「有多人時才成立」的附加功能；單人仍可觀戰。</li>
 </ul>
 <p>說明：舊規格用「系統估計的勝率」開賠率，估錯時玩家可以專押被低估的一方穩賺。任何由系統開出的固定賠率都有同樣風險，所以只保留彩池制。</p></section><section><h1 id="s5">05　玩家公會</h1>
-<p>版本 v4.0（2026-10-19）｜第三階段，天穹時代起</p>
+<p>版本 v4.1（2026-11-05）｜第三階段，天穹時代起</p>
 <p>公會是玩家組織與長期成長目標。<strong>一人公會也完整可玩</strong>，多人時有協作的好處。</p>
 <hr />
 <h2 id="s5-1">第一章　建立與管理</h2>
@@ -1809,13 +1872,13 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_3">1.1 協作工具</h3>
+<h3 id="11">1.1 協作工具</h3>
 <ul>
 <li>公會頻道：指令 <code>/gc &lt;訊息&gt;</code>，只有成員看得到。</li>
 <li>公告：會長與官員可編輯，成員上線時若公告有更新會收到提示。</li>
 <li>集結點：會長以 <code>/guild setrally</code> 設定，成員在古代石碑「公會」頁看到座標與方向（不提供傳送）。</li>
 </ul>
-<h3 id="_4">1.2 解散</h3>
+<h3 id="12">1.2 解散</h3>
 <ul>
 <li>公會倉庫內的物品存入「解散箱」，會長下次右鍵古代石碑時領取；背包放不下的掉在腳下。</li>
 <li>公會等級、經驗、天賦清空，無法恢復。</li>
@@ -1827,7 +1890,8 @@ hr{border:0;border-top:1px solid var(--line)}
 <ul>
 <li>成員完成懸賞時，公會獲得經驗 ＝ 該懸賞 RP × 10%。</li>
 <li>公會只有 1 名成員時，經驗 × 2。</li>
-<li>最高 20 級，每升一級得 1 點天賦點，由會長分配。</li>
+<li>建立時為 1 級，最高 20 級。從 n 級升到 n＋1 級需要 n × 100 點經驗（滿級共 19,000 點）。</li>
+<li>建立時得 1 點天賦點，之後每升一級再得 1 點，共 20 點，由會長分配。</li>
 </ul>
 <hr />
 <h2 id="s5-3">第三章　天賦</h2>
@@ -1981,7 +2045,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div></section><section><h1 id="s7">07　四大權證與個人城邦</h1>
-<p>版本 v4.0（2026-10-19）｜權證：第二階段；個人城邦：第三階段；城邦戰爭：暫緩</p>
+<p>版本 v4.1（2026-11-05）｜權證：第二階段；個人城邦：第三階段；城邦戰爭：暫緩</p>
 <p>終局個人目標。四大權證是<strong>單人可完成的史詩挑戰</strong>；集齊後可建立自己的城邦。</p>
 <hr />
 <h2 id="s7-1">第一章　四大權證（第二階段，天穹時代起）</h2>
@@ -2021,28 +2085,28 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_3">1.1 大地權證：方舟庇護所</h3>
+<h3 id="11">1.1 大地權證：方舟庇護所</h3>
 <ol>
-<li><strong>建立庇護所</strong>：以自己的一個界碑石為中心、32×32 格範圍內同時具備：
-   - 動物：牛、豬、羊、雞、兔子、馬、驢、騾、駱駝各至少 1 隻。
-   - 作物：小麥、胡蘿蔔、馬鈴薯、甜菜根、西瓜、南瓜都有種植。
-   - 村民：13 種職業各至少 1 名。</li>
+<li><strong>建立庇護所</strong>：以自己的一個界碑石為中心、32×32 格範圍內同時具備：</li>
+<li>動物：牛、豬、羊、雞、兔子、馬、驢、騾、駱駝各至少 1 隻。</li>
+<li>作物：小麥、胡蘿蔔、馬鈴薯、甜菜根、西瓜、南瓜都有種植。</li>
+<li>村民：13 種職業各至少 1 名。</li>
 <li><strong>引發試煉</strong>：擊殺災厄旗幟隊長獲得「不祥之兆」，帶著效果回到庇護所觸發突襲。這場突襲中的敵人無法破壞玩家放置的方塊。</li>
 <li><strong>守護成功</strong>：擊退所有波次後，若庇護所條件仍滿足，獲得大地權證。</li>
 </ol>
-<h3 id="_4">1.2 深淵權證：靜默調律</h3>
+<h3 id="12">1.2 深淵權證：靜默調律</h3>
 <ol>
 <li>從古代城市的箱子取得至少 1 個回聲碎片，並用絲綢之觸採集 1 個伸測器（Sculk Sensor）。</li>
 <li>在古代城市中央的大型門框結構上，用羊毛鋪一個平台。</li>
 <li>把伸測器放在平台正中央，再把回聲碎片丟在伸測器上，伸測器轉化為深淵權證。</li>
 </ol>
-<h3 id="_5">1.3 烈焰權證：獄火試煉</h3>
+<h3 id="13">1.3 烈焰權證：獄火試煉</h3>
 <ol>
 <li><strong>獵殺名單</strong>：親手擊殺地獄幽靈、烈焰使者、凋零骷髏、岩漿立方怪、豬布林蠻兵各至少 1 隻。</li>
 <li><strong>加冕</strong>：在地獄要塞的範圍內，用哭泣黑曜石鋪一個 5×5 平台，中央放置重生錨並用螢石充能到滿，重生錨轉化為烈焰權證。</li>
 </ol>
 <p>說明：舊規格要求「突破地獄頂部的基岩層」，只能靠遊戲漏洞，而且常被伺服器封鎖；改為在地獄要塞完成。</p>
-<h3 id="_6">1.4 虛空權證：虛空共鳴</h3>
+<h3 id="14">1.4 虛空權證：虛空共鳴</h3>
 <ol>
 <li><strong>終界導航員</strong>：穿著鞘翅穿過終界折躍門，全程不落地，降落在一朵自然生成的歌萊花頂端。</li>
 <li><strong>再次擊敗終界龍</strong>。</li>
@@ -2081,19 +2145,19 @@ hr{border:0;border-top:1px solid var(--line)}
 <p>憲章綁定持有者，不可交易、不可丟棄。</p>
 <hr />
 <h2 id="s7-3">第三章　個人城邦（第三階段）</h2>
-<h3 id="_9">3.1 建立</h3>
+<h3 id="31">3.1 建立</h3>
 <ul>
 <li>使用憲章放置「城邦基石」，跳出命名介面。</li>
 <li>城邦範圍：以基石為中心 128×128 格（全高度）。</li>
 <li>城主獲得稱號「○○城主」，顯示在聊天訊息前。</li>
 </ul>
-<h3 id="_10">3.2 國庫</h3>
+<h3 id="32">3.2 國庫</h3>
 <ul>
 <li>城主可把希爾存入國庫，<strong>只能存不能領</strong>。</li>
 <li>國庫只能用於城邦功能（赦令、雕像、慶典、維護費）。這是為了遵守「希爾不能在玩家間轉移」的原則。</li>
 <li>維護費：每 7 個模組日從國庫扣 20,000 × S(N)；國庫不足時城邦功能凍結（範圍與編年史仍保留）。</li>
 </ul>
-<h3 id="_11">3.3 城主特權</h3>
+<h3 id="33">3.3 城主特權</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -2129,7 +2193,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>說明：舊規格的城邦交易抽成可設為 −5%（補貼），等於城主出錢補貼其他玩家，違反封閉原則，改為只能 0%～5%。</p>
-<h3 id="_12">3.4 赦令</h3>
+<h3 id="34">3.4 赦令</h3>
 <ul>
 <li>同一時間只能有 1 個生效中的赦令；結束後 3 個模組日內不能頒布新赦令。</li>
 <li>效果只在城邦範圍內。</li>
@@ -2170,14 +2234,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_13">3.5 防止城邦成為農場基地</h3>
-<ul>
-<li>城邦範圍內，作物與樹苗每次生長有 50% 機率被取消（以遊戲提供的「作物生長」事件實作）。</li>
-<li>城邦範圍內，生物自然生成有 70% 機率被取消。</li>
-<li>不影響玩家手動種植、收成與繁殖。</li>
-</ul>
-<p>說明：舊規格寫「監聽 BlockTickEvent 調整隨機刻速度」，但這個事件在 Forge 1.20.1 不存在，也無法依區域調整速度；改為上面的做法。</p>
-<h3 id="_14">3.6 編年史</h3>
+<h3 id="35">3.5 編年史</h3>
 <ul>
 <li>城邦基石旁的「編年史」方塊，任何人可右鍵閱讀，內容自動記錄：建立、命名、頒布赦令、雕像升級、慶典、拆遷。</li>
 <li>城主主動拆遷時，城主失去特權與稱號，國庫銷毀；編年史方塊變為不可互動外觀的「廢墟石碑」永久保留，最後一頁記錄消亡。</li>
@@ -2223,7 +2280,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div></section><section><h1 id="s8">08　數值總表</h1>
-<p>版本 v4.0（2026-10-19）</p>
+<p>版本 v4.1（2026-11-05）</p>
 <p>所有可調整的數值集中在這裡。程式中<strong>不得</strong>把這些數字直接寫死在各處；一律讀取設定，改數值只改設定檔一處。</p>
 <ul>
 <li>單一數值放在 <code>config/economycore/economy.toml</code>（下表「設定名稱」就是檔案裡的名稱）。</li>
@@ -2373,7 +2430,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <tr>
 <td><code>recycle.dailyRecovery</code></td>
 <td>0.80</td>
-<td>每模組日近期回收量保留比例（0.8 ＝ 回升 20%）</td>
+<td>每模組日近期回收量保留比例（0.8 ＝ 回收量減少 20%）</td>
 <td>02 §2.1</td>
 </tr>
 <tr>
@@ -2506,7 +2563,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <tr>
 <td><code>donation.saturationBase</code></td>
 <td>50000</td>
-<td>每種物品文明點數飽和量 T 的基數（再乘人數係數）</td>
+<td>每個物品族文明點數飽和量 T 的基數（再乘人數係數）</td>
 <td>03 §1.2</td>
 </tr>
 <tr>
@@ -2577,6 +2634,12 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>03 §4.3</td>
 </tr>
 <tr>
+<td><code>bounty.auto.maxCount</code></td>
+<td>256</td>
+<td>自動生成懸賞的數量上限</td>
+<td>03 §4.3</td>
+</tr>
+<tr>
 <td><code>bounty.echoChance.timedA</code></td>
 <td>0.03</td>
 <td>A 級限時懸賞掉落次元迴響機率</td>
@@ -2636,6 +2699,12 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>64 / 64</td>
 <td>每人每日每品項</td>
 <td>03 §5.4</td>
+</tr>
+<tr>
+<td><code>exchange.dailySellCap.commerce</code> / <code>aether</code> / <code>star</code></td>
+<td>6000 / 10000 / 15000</td>
+<td>每人每日賣出稅前收入上限</td>
+<td>03 §5.4.1</td>
 </tr>
 <tr>
 <td><code>tax.tier1Limit</code> / <code>tier2Limit</code></td>
@@ -2900,6 +2969,12 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>05 §2</td>
 </tr>
 <tr>
+<td><code>guild.xpPerLevel</code></td>
+<td>100</td>
+<td>從 n 級升到 n＋1 級需要 n × 此值的經驗</td>
+<td>05 §2</td>
+</tr>
+<tr>
 <td><code>guild.nameReserveDays</code></td>
 <td>30</td>
 <td>解散後名稱保留</td>
@@ -2923,12 +2998,6 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>每 7 日維護費基數（乘人數係數）</td>
 <td>07 §3.2</td>
 </tr>
-<tr>
-<td><code>city.cropCancelChance</code> / <code>spawnCancelChance</code></td>
-<td>0.5 / 0.7</td>
-<td>城邦內作物生長、生物生成取消機率</td>
-<td>07 §3.5</td>
-</tr>
 </tbody>
 </table></div>
 <hr />
@@ -2944,13 +3013,18 @@ hr{border:0;border-top:1px solid var(--line)}
 <tbody>
 <tr>
 <td><code>item_values.json</code></td>
-<td>物品基準價值的手動覆寫與內建基準表</td>
+<td>物品基準價值的手動覆寫、模組預設、物品族指定與內建基準表</td>
 <td>02 §1</td>
 </tr>
 <tr>
 <td><code>item_values_computed.json</code></td>
-<td>啟動時計算出的全部 V（唯讀，供查看）</td>
+<td>啟動時計算出的全部 V 與物品族（唯讀，供查看）</td>
 <td>02 §1</td>
+</tr>
+<tr>
+<td><code>item_values_unresolved.json</code></td>
+<td>配方推算不出、採用預設值的物品（唯讀，供查看）</td>
+<td>02 §1.1</td>
 </tr>
 <tr>
 <td><code>recycle_blacklist.json</code></td>
@@ -2989,7 +3063,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div></section><section><h1 id="s9">09　實作對照</h1>
-<p>版本 v4.0（2026-10-19）｜對照基準：<code>src/</code> 於 2026-06-07 的狀態</p>
+<p>版本 v4.1（2026-11-05）｜對照基準：<code>src/</code> 於 2026-06-07 的狀態</p>
 <p>列出現有程式與新規格的差距，作為之後動程式的待辦清單。程式檔名寫在「位置」欄，方便之後指給開發者看。</p>
 <hr />
 <h2 id="s9-1">一、可以沿用</h2>
@@ -3005,7 +3079,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <tr>
 <td>錢包存在玩家資料上、死亡保留</td>
 <td><code>capability/PlayerMoney*</code></td>
-<td>需改成透過唯一入口加減錢</td>
+<td>需改成透過唯一入口加減錢；死亡保留要先確認（見第二節）</td>
 </tr>
 <tr>
 <td>冒險者階級與 RP</td>
@@ -3025,7 +3099,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <tr>
 <td>集資箱的遞減公式</td>
 <td><code>core/ContributionRegistry</code></td>
-<td>公式方向正確；需改成以 V 計算、所有物品可捐、取消「至少 1 點」</td>
+<td>公式方向正確；需改成以 V 計算、按物品族累計、所有物品可捐、取消「至少 1 點」</td>
 </tr>
 <tr>
 <td>交易所積分定價</td>
@@ -3083,6 +3157,12 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>文明點數有天花板，後期時代到不了</td>
 <td><code>core/ContributionRegistry</code>、<code>core/AgeManager</code></td>
 <td>新晉升條件（03 §1）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>死亡與從終界返回可能遺失錢包與 RP：2025-06 版只在死亡時複製資料，且沒有先呼叫 <code>reviveCaps</code>；2026-06 版待確認</td>
+<td><code>event/ForgeEvents.onPlayerClone</code></td>
+<td>兩種情況都完整複製（01 §1.1）</td>
 </tr>
 <tr>
 <td>2</td>
@@ -3202,7 +3282,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </table></div>
 <h2 id="s9-3">三、尚未實作</h2>
 <p>依開發階段列出，見〈00〉第六章。第一階段中目前完全沒有的：物品基準價值計算、統一回收規則、帳本、模組日、人數係數、合成配方、NPC 契約。</p></section><section><h1 id="s10">10　共用定義</h1>
-<p>版本 v4.0（2026-10-19）｜開發者（含 Claude Code）必讀</p>
+<p>版本 v4.1（2026-11-05）｜開發者（含 Claude Code）必讀</p>
 <p>本篇定義<strong>各功能共用</strong>的程式名稱、資料、服務與事件。其他規格書描述「要做什麼」，本篇規定「大家用同一套東西做」。任何功能都不得自行另做一套與本篇重複的東西。</p>
 <p>閱讀說明：反引號中的英文（例如 <code>Wallet</code>）是程式裡的名稱，旁邊的中文是它的意思。</p>
 <hr />
@@ -3258,7 +3338,7 @@ hr{border:0;border-top:1px solid var(--line)}
 <hr />
 <h2 id="s10-2">第二章　共用列舉</h2>
 <p>列舉＝固定選項的清單。存檔裡一律存<strong>英文名稱</strong>（不是第幾個），所以只能新增、不能改名。</p>
-<h3 id="_4">2.1 時代 <code>Era</code></h3>
+<h3 id="21-era">2.1 時代 <code>Era</code></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3296,9 +3376,9 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>提供「是否已達某時代」的判斷 <code>isAtLeast(Era)</code>。舊存檔中的 <code>INDUSTRY</code>（工業時代）讀取時轉為 <code>COMMERCE</code>。</p>
-<h3 id="_5">2.2 冒險者階級 <code>AdventurerRank</code></h3>
+<h3 id="22-adventurerrank">2.2 冒險者階級 <code>AdventurerRank</code></h3>
 <p><code>F</code>、<code>E</code>、<code>D</code>、<code>C</code>、<code>B</code>、<code>A</code>、<code>S</code>，門檻讀 <code>rank.thresholds</code>。</p>
-<h3 id="_6">2.3 村民職業 <code>Profession</code></h3>
+<h3 id="23-profession">2.3 村民職業 <code>Profession</code></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3330,7 +3410,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>用於懸賞的「相關職業」與公會的「親近職業」。</p>
-<h3 id="_7">2.4 帳本事由 <code>LedgerCategory</code></h3>
+<h3 id="24-ledgercategory">2.4 帳本事由 <code>LedgerCategory</code></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3391,12 +3471,12 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_8">2.5 賣出管道 <code>SaleChannel</code></h3>
+<h3 id="25-salechannel">2.5 賣出管道 <code>SaleChannel</code></h3>
 <p><code>SCRAP</code>（回收商）、<code>BLACK_MARKET</code>（黑市大宗）、<code>SPECULATION</code>（投機品）、<code>EXCHANGE</code>（交易所賣出）。用於計稅與帳本。</p>
 <hr />
 <h2 id="s10-3">第三章　共用服務</h2>
 <p>服務＝一組「其他功能只能透過它來做某件事」的功能。以下列出每個服務提供的動作；程式中的方法名稱放在括號內。</p>
-<h3 id="_10">3.1 錢包 <code>Wallet</code>（〈01〉第一章）</h3>
+<h3 id="31-wallet01">3.1 錢包 <code>Wallet</code>（〈01〉第一章）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3423,7 +3503,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_11">3.2 帳本 <code>Ledger</code></h3>
+<h3 id="32-ledger">3.2 帳本 <code>Ledger</code></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3446,7 +3526,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_12">3.3 模組日 <code>ModCalendar</code>（〈01〉第二章）</h3>
+<h3 id="33-modcalendar01">3.3 模組日 <code>ModCalendar</code>（〈01〉第二章）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3470,7 +3550,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>所有「每日」「每週」的規則一律用它，<strong>不得</strong>直接讀遊戲世界時間。</p>
-<h3 id="_13">3.4 人數係數 <code>PlayerScale</code>（〈00〉第五章）</h3>
+<h3 id="34-playerscale00">3.4 人數係數 <code>PlayerScale</code>（〈00〉第五章）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3493,7 +3573,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_14">3.5 物品估價 <code>ItemValues</code>（〈02〉第一章）</h3>
+<h3 id="35-itemvalues02">3.5 物品估價 <code>ItemValues</code>（〈02〉第一章）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3507,12 +3587,16 @@ hr{border:0;border-top:1px solid var(--line)}
 <td>依物品堆疊（含耐久）回傳 V，小數</td>
 </tr>
 <tr>
+<td>物品族（<code>familyOf</code>）</td>
+<td>回傳物品所屬的物品族（〈02〉1.6）</td>
+</tr>
+<tr>
 <td>可否回收（<code>isRecyclable</code>）</td>
 <td>檢查拒收名單、V &gt; 0、容器是否有內容物</td>
 </tr>
 <tr>
 <td>說明（<code>explain</code>）</td>
-<td>回傳 V 是怎麼算出來的，給 <code>/economy value</code> 用</td>
+<td>回傳 V 與物品族是怎麼算出來的，給 <code>/economy value</code> 用</td>
 </tr>
 <tr>
 <td>重新計算（<code>rebuild</code>）</td>
@@ -3520,7 +3604,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_15">3.6 交易稅 <code>SaleTax</code>（〈03〉第六章）</h3>
+<h3 id="36-saletax03">3.6 交易稅 <code>SaleTax</code>（〈03〉第六章）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3535,12 +3619,12 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 <tr>
 <td>結算（<code>apply</code>）</td>
-<td>計稅、累加今日賣出總額、回傳實得金額。稅額記帳為 <code>SALE_TAX</code></td>
+<td>計稅、累加今日賣出總額、經 <code>Wallet</code> 以 <code>SALE_TAX</code> 扣除稅額、回傳實得金額。呼叫前稅前金額必須已存入錢包</td>
 </tr>
 </tbody>
 </table></div>
 <p>公會天賦的減免由 <code>SaleTax</code> 向公會服務查詢，沒有公會功能時視為無減免。</p>
-<h3 id="_16">3.7 回收 <code>RecycleService</code>（〈02〉第二、三章）</h3>
+<h3 id="37-recycleservice02">3.7 回收 <code>RecycleService</code>（〈02〉第二、三章）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3555,11 +3639,11 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 <tr>
 <td>賣出（<code>sell</code>）</td>
-<td>執行收購：扣物品、更新近期回收量 A、更新每日已用額度、經 <code>SaleTax</code> 計稅、經 <code>Wallet</code> 付款</td>
+<td>執行收購：扣物品、更新物品族的近期回收量 A、更新每日已用額度、經 <code>Wallet</code> 存入稅前金額、再呼叫 <code>SaleTax.apply</code> 扣稅</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="_17">3.8 時代 <code>EraService</code>（〈03〉第一章）</h3>
+<h3 id="38-eraservice03">3.8 時代 <code>EraService</code>（〈03〉第一章）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3590,7 +3674,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_18">3.9 階級 <code>RankService</code></h3>
+<h3 id="39-rankservice">3.9 階級 <code>RankService</code></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3617,7 +3701,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_19">3.10 小工具 <code>Util</code></h3>
+<h3 id="310-util">3.10 小工具 <code>Util</code></h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3691,7 +3775,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </table></div>
 <hr />
 <h2 id="s10-5">第五章　資料儲存</h2>
-<h3 id="_22">5.1 存在玩家身上（玩家資料，死亡保留）</h3>
+<h3 id="51">5.1 存在玩家身上（玩家資料，死亡保留）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3710,7 +3794,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 <tr>
 <td>每日計數</td>
-<td>今日回收已用額度、今日投機品各物品數量與收入、今日交易所各品項買賣數量、今日賣出總額（計稅用）、今日回城次數、急救冷卻、今日是否已領祝福</td>
+<td>今日回收已用額度、今日投機品各物品數量與收入、今日交易所各品項買賣數量、今日交易所賣出收入、今日賣出總額（計稅用）、今日回城次數、急救冷卻、今日是否已領祝福</td>
 </tr>
 <tr>
 <td>收藏</td>
@@ -3723,7 +3807,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p><strong>每日計數的寫法</strong>：每個計數都附上「這是第幾天的數字」，讀取時若日數不是今天就視為 0。不需要在換日時逐一清空。</p>
-<h3 id="_23">5.2 存在世界存檔（全服共用，放在主世界的資料儲存區）</h3>
+<h3 id="52">5.2 存在世界存檔（全服共用，放在主世界的資料儲存區）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -3746,11 +3830,11 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 <tr>
 <td><code>ecosuite_donation</code></td>
-<td>每種物品的累計捐獻價值 D</td>
+<td>每個物品族的累計捐獻價值 D</td>
 </tr>
 <tr>
 <td><code>ecosuite_recycle</code></td>
-<td>每種物品的近期回收量 A</td>
+<td>每個物品族的近期回收量 A</td>
 </tr>
 <tr>
 <td><code>ecosuite_exchange</code></td>
@@ -3767,7 +3851,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tbody>
 </table></div>
 <p>帳本不存在世界存檔，另存為 <code>世界資料夾/economycore/ledger/day_N.csv</code>（N 為模組日），方便用試算表或文字編輯器打開。</p>
-<h3 id="_24">5.3 存檔版本與轉換</h3>
+<h3 id="53">5.3 存檔版本與轉換</h3>
 <ul>
 <li>每份資料都記錄 <code>dataVersion</code>（資料版本）。</li>
 <li>讀到舊版本時依下表轉換，轉換後以新版本存檔：</li>
@@ -3790,7 +3874,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 <tr>
 <td>舊的 <code>ecosuite_world_progression</code> 中各物品捐獻數量</td>
-<td>乘以該物品的 V 後轉為 D</td>
+<td>乘以該物品的 V 後，累加到所屬物品族的 D</td>
 </tr>
 <tr>
 <td>舊的黑市、交易所每日資料</td>
@@ -3889,6 +3973,10 @@ hr{border:0;border-top:1px solid var(--line)}
 <td><code>baseValue</code></td>
 </tr>
 <tr>
+<td>物品族</td>
+<td><code>itemFamily</code></td>
+</tr>
+<tr>
 <td>收購飽和</td>
 <td><code>saturation</code></td>
 </tr>
@@ -3934,7 +4022,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div></section><section><h1 id="s11">11　第一階段工作清單</h1>
-<p>版本 v4.0（2026-10-19）</p>
+<p>版本 v4.1（2026-11-05）</p>
 <p>第一階段的目標：<strong>生存模式可以從拓荒玩到商業時代，而且不通膨。</strong> 下列工作依順序做，每項完成且驗收通過才做下一項。每項後面的「驗收」是做完後要檢查的事；標「建置」的由開發者執行，標「遊戲內」的由 Chair 進遊戲測試。</p>
 <hr />
 <h2 id="s11-1">T0　存檔與整理</h2>
@@ -3959,12 +4047,13 @@ hr{border:0;border-top:1px solid var(--line)}
 <li>實作 <code>Wallet</code>、<code>Ledger</code>、<code>/economy report</code>（〈10〉3.1、3.2）。</li>
 <li>把現有程式中<strong>所有</strong>直接改餘額的地方改成呼叫 <code>Wallet</code>。</li>
 <li><code>/money</code> 指令依〈01〉第七章調整權限。</li>
+<li>玩家資料在死亡與從終界返回時都要完整複製（錢包、信譽、每日計數）。</li>
 </ul>
 <p>驗收（建置）：全專案搜尋不到 <code>addMoney</code>、<code>removeMoney</code>、<code>setMoney</code> 被 <code>Wallet</code> 以外的地方呼叫。
-驗收（遊戲內）：完成一個懸賞、用 <code>/money add</code> 加錢後，<code>/economy report 1</code> 看得到兩筆，事由正確。</p>
+驗收（遊戲內）：完成一個懸賞、用 <code>/money add</code> 加錢後，<code>/economy report 1</code> 看得到兩筆，事由正確；死亡後與從終界返回後，餘額、RP、進行中的懸賞都還在。</p>
 <h2 id="s11-4">T3　共用小工具與同步</h2>
 <ul>
-<li><code>giveOrDrop</code>、<code>MenuGuard.check</code>、<code>EraGate.require</code>（〈10〉3.10）。</li>
+<li><code>giveOrDrop</code>、<code>MenuGuard.check</code>、<code>EraGate.require</code>、<code>Money.round</code>（〈10〉3.10）。</li>
 <li>所有介面的「永不失效」改為距離檢查；所有玩家送給伺服器的請求都經過 <code>MenuGuard</code>。</li>
 <li>所有給玩家物品的地方改用 <code>giveOrDrop</code>。</li>
 <li>清單同步：懸賞清單在登入與 reload 時由伺服器傳給玩家端。</li>
@@ -3972,28 +4061,28 @@ hr{border:0;border-top:1px solid var(--line)}
 <p>驗收（遊戲內）：背包塞滿後向工匠買東西，物品掉在腳下；打開交易所後走開 9 格，介面自動關閉。</p>
 <h2 id="s11-5">T4　物品估價</h2>
 <ul>
-<li>實作 <code>ItemValues</code>（〈02〉第一章、〈10〉3.5）：設定檔覆寫 → 內建基準表 → 配方推算 → 稀有度預設。</li>
+<li>實作 <code>ItemValues</code>（〈02〉第一章、〈10〉3.5）：設定檔覆寫 → 內建基準表 → 配方推算 → 模組預設 → 稀有度預設；同時算出每種物品的物品族。</li>
 <li>內建基準表依〈02〉1.4 建立 <code>item_values.json</code> 預設內容。</li>
-<li>啟動時輸出 <code>item_values_computed.json</code>；指令 <code>/economy value &lt;物品&gt;</code>。</li>
+<li>啟動時輸出 <code>item_values_computed.json</code> 與 <code>item_values_unresolved.json</code>；指令 <code>/economy value &lt;物品&gt;</code>。</li>
 </ul>
-<p>驗收（遊戲內）：<code>/economy value minecraft:iron_ingot</code> 約 14、<code>minecraft:netherite_ingot</code> 約 3,010，並顯示推算過程；任一其他模組物品能查到值。</p>
+<p>驗收（遊戲內）：<code>/economy value minecraft:iron_ingot</code> 約 14、<code>minecraft:netherite_ingot</code> 約 3,010、<code>minecraft:netherite_chestplate</code> 約 6,414，並顯示推算過程；<code>minecraft:cobblestone_stairs</code> 的物品族是圓石；任一其他模組物品能查到值，推不出來的出現在 <code>item_values_unresolved.json</code>。</p>
 <h2 id="s11-6">T5　交易稅</h2>
 <ul>
 <li>實作 <code>SaleTax</code>（〈03〉第六章、〈10〉3.6）：門檻 10,000／40,000，只對賣出課稅。</li>
 <li>移除工匠、交易所、次元商人對「購買」課稅的程式。</li>
 </ul>
-<p>驗收（遊戲內）：同一天賣出累計超過 10,000 後，訊息中的稅率從 5% 變 8%。</p>
+<p>驗收（遊戲內）：同一天賣出累計超過 10,000 後，訊息中的稅率從 5% 變 8%；帳本同時有收入與 <code>SALE_TAX</code> 兩筆，兩者相加等於餘額變化。</p>
 <h2 id="s11-7">T6　回收商</h2>
 <ul>
 <li>實作 <code>RecycleService</code>（〈02〉第二、三章、〈10〉3.7）。</li>
 <li>廢品回收 NPC 重做為「回收商」：54 格放置區、預估總價、行情百分比、全部賣出、拒收原因、每日上限。</li>
 <li>移除舊的 <code>ScrapYardRegistry</code> 固定價格表。</li>
 </ul>
-<p>驗收（遊戲內）：連續賣大量圓石，行情百分比明顯下降；隔一個模組日回升約 20%；達到每日上限後無法再賣；有內容物的界伏盒被拒收。</p>
+<p>驗收（遊戲內）：連續賣大量圓石，行情百分比明顯下降；賣圓石樓梯也會壓低圓石行情；行情 37% 隔一個模組日回到約 45%；達到每日上限後無法再賣；有內容物的界伏盒被拒收。</p>
 <h2 id="s11-8">T7　黑市</h2>
 <ul>
 <li>大宗收購改用 <code>RecycleService</code>（管道 <code>BLACK_MARKET</code>）。</li>
-<li>投機品重做：兩欄錯開更換、價格 V×3、每人每日每種 10 個、每日上限 5,000、冷卻 10 天；投機品池改為 <code>blackmarket_speculation.json</code>，只放無法量產的物品（〈02〉第四章）。</li>
+<li>投機品重做：兩欄錯開更換、價格 V×3、每人每日每種 10 個、每日上限 5,000、冷卻 10 天；投機品池改為 <code>blackmarket_speculation.json</code>，預設內容照〈02〉第四章。</li>
 <li>介面請求改用物品名稱。</li>
 </ul>
 <p>驗收（遊戲內）：商業時代前黑市介面只顯示「需要商業時代」；投機品兩欄的到期日不同。</p>
@@ -4001,25 +4090,26 @@ hr{border:0;border-top:1px solid var(--line)}
 <ul>
 <li>定價改寫（〈03〉第五章）：單一敏感度、買 ×1.10、賣 ×0.90、中間價限制 0.6V～3V、積分定價。</li>
 <li>品項改讀 <code>exchange_items.json</code>，預設不含綠寶石與金錠；理想庫存乘人數係數。</li>
-<li>每日庫存回歸 10%；每人每日每品項買賣各 64。</li>
+<li>每日庫存回歸 10%；每人每日每品項買賣各 64；每人每日賣出收入上限（〈03〉5.4.1）。</li>
 </ul>
 <p>驗收（建置）：寫一個自動檢查——對每個品項、從庫存 1 到理想庫存 100 倍，「買 n 個再賣回 n 個」的結果都是虧錢。
-驗收（遊戲內）：大量賣出鑽石後，隔幾天價格往原價回升。</p>
+驗收（遊戲內）：大量賣出鑽石後，隔幾天價格往原價回升；商業時代當天賣出收入達 6,000 後無法再賣，隔一個模組日恢復。</p>
 <h2 id="s11-10">T9　時代與集資箱</h2>
 <ul>
+<li>實作 <code>RankService</code>（〈10〉3.9）與 <code>RankChangedEvent</code>，供階級條件使用。</li>
 <li>實作 <code>EraService</code>（〈03〉第一章、〈10〉3.8）：四類條件、各時代分開累計、人數係數。</li>
-<li>文明點數改用 V 計算、所有可回收物品都能捐、取消「每次至少 1 點」、每日 D × 0.98。</li>
+<li>文明點數改用 V 計算、按物品族累計、所有可回收物品都能捐、取消「每次至少 1 點」、每日 D × 0.98。</li>
 <li>里程碑偵測：首次進入地獄、擊敗終界龍、擊敗凋零怪。</li>
 <li>集資箱介面：四類條件進度、兌換率、全部捐獻（不含快捷欄與裝備欄）、捐獻希爾。</li>
 <li><code>/era</code> 指令配合調整。</li>
 </ul>
-<p>驗收（遊戲內，單人）：開墾時代需要 3,000 文明點數與 1,500 希爾；同一種物品一直捐，兌換率持續下降；捐錢超過需求的部分不會被扣。</p>
+<p>驗收（遊戲內，單人）：開墾時代需要 3,000 文明點數與 1,500 希爾；同一族物品一直捐（含圓石與圓石樓梯混捐），兌換率持續下降；捐錢超過需求的部分不會被扣。</p>
 <h2 id="s11-11">T10　懸賞板</h2>
 <ul>
 <li>時間改用模組日；期限改為整數模組日。</li>
 <li>回報必須在懸賞板前（<code>MenuGuard</code>）。</li>
 <li>終界龍、凋零怪的參與判定（128 格內造成過傷害）。</li>
-<li><code>bounties.json</code> 新增「相關職業」欄位；完成時送出 <code>BountyCompletedEvent</code>；RP 改經 <code>RankService</code>。</li>
+<li><code>bounties.json</code> 新增「相關職業」欄位；完成時送出 <code>BountyCompletedEvent</code>；RP 改經 T9 建立的 <code>RankService</code>。</li>
 </ul>
 <p>驗收（遊戲內）：在懸賞板以外的地方無法回報；限時懸賞逾時扣 RP 50%。</p>
 <h2 id="s11-12">T11　NPC、契約、配方</h2>
@@ -4089,11 +4179,94 @@ hr{border:0;border-top:1px solid var(--line)}
 <li>進入地獄後晉升商業時代；召喚黑市、放交易所。</li>
 <li>全程 <code>/economy report</code> 檢查：沒有任何一個事由的收入失控。</li>
 </ol></section><section><h1 id="s12">99　修訂紀錄</h1>
-<h2 id="s12-1">v4.0（2026-10-19）</h2>
+<h2 id="s12-1">v4.1（2026-11-05）</h2>
+<p>依 v4.0 審查結果修正。新增的數字都是初始值，尚未經實際遊玩驗證，可在設定檔調整。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>之前</th>
+<th>現在</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>交易所賣出只限每日數量</td>
+<td>另加每人每日賣出收入上限 6,000／10,000／15,000</td>
+<td>賣價有 0.54V 的下限，單人賣地獄之星每天可得約 172,800 希爾</td>
+</tr>
+<tr>
+<td>收購飽和與捐獻遞減按物品 ID 累計</td>
+<td>按物品族累計（〈02〉1.6）</td>
+<td>同一批圓石做成多種型態就能躲開遞減；30 種型態時回收多 56%、捐獻多 35%</td>
+</tr>
+<tr>
+<td>投機品池含可量產的物品</td>
+<td>移除其他唱片、三叉戟、鸚鵡螺殼、鞍、命名牌、鐘、盔甲紋飾模板、皮革馬鎧；規則補上村民交易與複製配方</td>
+<td>這些物品可由農場、村民或複製大量取得</td>
+</tr>
+<tr>
+<td>基準表只有節錄</td>
+<td>補齊原版原料與固定價物品，並新增海綿等 V</td>
+<td>T4 原本無法照做；海綿是交易所品項卻沒有 V</td>
+</tr>
+<tr>
+<td>配方推算缺鍛造台公式與其他配方類型</td>
+<td>補鍛造台公式；高爐等視為熔煉；其他模組配方盡量讀取；新增模組預設與 <code>item_values_unresolved.json</code></td>
+<td>模組機器配方算不出來時，產物多半只值稀有度預設</td>
+</tr>
+<tr>
+<td>自動懸賞要求物品單價落在價值帶內</td>
+<td>任務總價值約等於價值帶中位數，數量上限 256，無候選時從缺</td>
+<td>高階價值帶幾乎沒有符合的原版物品</td>
+</tr>
+<tr>
+<td>交易稅入帳方式未定義</td>
+<td>先存稅前金額，再以 <code>SALE_TAX</code> 扣稅</td>
+<td>否則帳本加總與餘額對不上</td>
+</tr>
+<tr>
+<td>「每天回升約 20%」</td>
+<td>「近期回收量每天減少 20%」，行情 37% 隔天約 45%</td>
+<td>減少 20% 的是回收量，不是價格回升 20%</td>
+</tr>
+<tr>
+<td>錢包只寫死亡不損失</td>
+<td>含從終界返回；T2 加入處理與驗收</td>
+<td>舊程式返回時不複製資料</td>
+</tr>
+<tr>
+<td>城邦內作物生長 50%、生物生成 70% 機率被取消</td>
+<td>取消此限制</td>
+<td>與「豐收」「安居」赦令衝突；回收上限與物品族已控制農場收入，這條只會懲罰自己的基地</td>
+</tr>
+<tr>
+<td>公會未定義經驗曲線，每升一級 1 點卻寫最多 20 點</td>
+<td>n 級升 n＋1 級需 n × 100 經驗；建立時得 1 點，共 20 點</td>
+<td>補定義、修正矛盾</td>
+</tr>
+<tr>
+<td>懸賞抽取範圍超出 F～S 未定義</td>
+<td>超出部分併入本階級；明定上一級為較高階</td>
+<td>補定義</td>
+</tr>
+<tr>
+<td>希爾不得轉移，但彩池會把他人的錢分給中獎者</td>
+<td>明列樂透與鬥技場為唯一例外</td>
+<td>修正矛盾</td>
+</tr>
+<tr>
+<td>T3 未列 <code>Money.round</code>；T9 需要 <code>RankService</code> 卻到 T10 才提到</td>
+<td>T3 加入；T9 建立 <code>RankService</code></td>
+<td>補足工作順序</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="s12-2">v4.0（2026-10-19）</h2>
 <p>取代 2026-04 的八份 PDF（設計總綱 v2.0、經濟核心 v3.0、城鎮發展 v3.0、黑市 v2.0、玩家公會 v2.0、休閒與博弈 v2.0、證券交易所 v2.0、君主城邦 v2.0）。舊檔已移到 <code>待刪除/</code> 資料夾。</p>
 <p>同日補充：新增〈10 共用定義〉（各功能共用的程式名稱、服務、事件、存檔規則）與〈11 第一階段工作清單〉（含合成配方與驗收方式），讓規格可以直接交給開發者照做。</p>
 <p>本次依三個核心目標全面檢討：不通膨、所有物品都有價值、單人多人都能玩。下表逐項列出「之前怎麼寫、現在改成什麼、為什麼」。</p>
-<h3 id="_3">架構與總綱</h3>
+<h3 id="_1">架構與總綱</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -4145,7 +4318,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_4">回收（原：廢品回收站、黑市大宗、萬物收購商）</h3>
+<h3 id="_2">回收（原：廢品回收站、黑市大宗、萬物收購商）</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -4192,7 +4365,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_5">城鎮發展</h3>
+<h3 id="_3">城鎮發展</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -4284,7 +4457,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_6">休閒與博弈</h3>
+<h3 id="_4">休閒與博弈</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -4311,7 +4484,7 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_7">玩家公會</h3>
+<h3 id="_5">玩家公會</h3>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -4348,9 +4521,9 @@ hr{border:0;border-top:1px solid var(--line)}
 </tr>
 </tbody>
 </table></div>
-<h3 id="_8">證券交易所</h3>
+<h3 id="_6">證券交易所</h3>
 <p>整篇暫緩。保留構想並列出重新啟動前必須解決的問題（〈06〉），主要是：系統當交易對手等於印鈔、股利兩個公式互相矛盾、熔斷與漲跌上限重疊、城主頒布赦令等於內線交易。</p>
-<h3 id="_9">君主城邦</h3>
+<h3 id="_7">君主城邦</h3>
 <div class="tw"><table>
 <thead>
 <tr>
